@@ -2,6 +2,7 @@
 
 ![InvoiceWise Logo](public/logo.png)
 
+<img width="1671" height="941" alt="662103020-1077aae7-ab9d-4890-9371-712038416954" src="https://github.com/user-attachments/assets/4e3cbc0f-cbe9-4641-8fc7-c9dfc70af3ce" />
 **InvoiceWise 3.1.1** is an enterprise-grade, standalone Windows desktop ERP software engineered for chemical manufacturers, pharmaceutical formulators, cosmetic labs, packaging units, and distributors. 
 
 It unifies **BOM Formula Engineering**, **Multi-Batch Traceability**, **Multi-Unit Inventory (Weight, Volume & Count)**, **Cryptographic Audit Ledgers**, **Inward Vendor Lot Management**, **Finished Goods Inventory**, **Rule 46 GST Invoicing**, and **Embedded Desktop Utilities** into a fast, local-first application requiring zero cloud dependencies or database server configurations.
