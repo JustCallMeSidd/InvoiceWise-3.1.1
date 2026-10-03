@@ -2,7 +2,7 @@
 
 ![InvoiceWise Logo](public/logo.png)
 
-<img width="1672" height="941" alt="InvoiceWise 3 1 1 Manufacturing Control Poster" src="https://github.com/user-attachments/assets/e7cc9ced-ed3b-4c87-ba27-5042660ead69" />
+<img width="1672" height="941" alt="InvoiceWise 3 1 1 Manufacturing Control Poster" src="https://github.com/user-attachments/assets/e7cc9ced-ed3b-4c87-ba27-5042660ead69"/>
 
 **InvoiceWise 3.1.1** is an enterprise-grade, standalone Windows desktop ERP software engineered for chemical manufacturers, pharmaceutical formulators, cosmetic labs, packaging units, and distributors. 
 
