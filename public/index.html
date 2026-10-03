@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate" translate="no">
+<head>
+  <meta name="google" content="notranslate" />
+  <script>
+    // Suppress noise from third-party browser extensions (e.g. translateContent.js / extension SVG defects)
+    (function() {
+      const _origErr = console.error;
+      console.error = function(...args) {
+        const msg = args.map(a => typeof a === 'string' ? a : (a && a.message ? a.message : '')).join(' ');
+        if (msg.includes('<path>') && (msg.includes('Expected number') || msg.includes('tc0.2'))) return;
+        if (msg.includes('translateContent')) return;
+        _origErr.apply(console, args);
+      };
+      window.addEventListener('error', function(e) {
+        if (e.filename && (e.filename.includes('translateContent') || e.filename.includes('jquery'))) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+        }
+        if (e.message && e.message.includes('Expected number') && e.message.includes('<path>')) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+        }
+      }, true);
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InvoiceWise 3.1.0 — Professional GST Billing & Manufacturing ERP</title>
+  <meta name="description" content="Professional GST-compliant billing, inventory, manufacturing and batch traceability ERP. Generate A4 invoices, manage recipes, track production batches." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3.1.0" />
+</head>
+<body class="notranslate" translate="no">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-area" id="logo-area">
+        <div class="logo-placeholder" id="logo-placeholder">
+          <img src="/logo.png" alt="InvoiceWise Logo" id="sidebar-logo-img" />
+        </div>
+        <div class="logo-text">
+          <span class="logo-brand">InvoiceWise</span>
+          <span class="logo-tagline">GST Billing</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group-label">Overview</div>
+      <button class="nav-item active" data-page="dashboard" id="nav-dashboard">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+        <span>Dashboard</span>
+      </button>
+
+      <div class="nav-group-label">Billing</div>
+      <button class="nav-item" data-page="invoices" id="nav-invoices">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Invoices</span>
+        <span class="nav-badge" id="invoice-count-badge">0</span>
+      </button>
+      <button class="nav-item" data-page="create-invoice" id="nav-create-invoice">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        <span>New Invoice</span>
+      </button>
+      <button class="nav-item" data-page="customers" id="nav-customers">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Customers</span>
+        <span class="nav-badge" id="customer-count-badge">0</span>
+      </button>
+
+      <div class="nav-group-label">Catalog</div>
+      <button class="nav-item" data-page="products" id="nav-products">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <span>Products</span>
+        <span class="nav-badge" id="product-count-badge">0</span>
+      </button>
+      <button class="nav-item" data-page="add-product" id="nav-add-product">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <span>Add Product</span>
+      </button>
+
+      <div class="nav-group-label">Inventory</div>
+      <button class="nav-item" data-page="raw-materials" id="nav-raw-materials">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M14 14h7v7h-7z"/><path d="M3 14h7v7H3z"/></svg>
+        <span>Raw Materials</span>
+        <span class="nav-badge" id="rm-count-badge">0</span>
+      </button>
+      <button class="nav-item" data-page="recipes" id="nav-recipes">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+        <span>Recipes &amp; BOM</span>
+        <span class="nav-badge" id="recipe-count-badge">0</span>
+      </button>
+      <button class="nav-item" data-page="manufacturing" id="nav-manufacturing">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M5 20V8l5-5 5 5v12"/><path d="M14 20v-6h4v6"/><path d="M9 12h2"/><path d="M9 16h2"/></svg>
+        <span>Manufacturing</span>
+        <span class="nav-badge" id="batch-count-badge">0</span>
+      </button>
+      <button class="nav-item" data-page="inventory-history" id="nav-inventory-history">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Audit Ledger</span>
+      </button>
+
+      <div class="nav-group-label">Intelligence</div>
+      <button class="nav-item" data-page="ai-assistant" id="nav-ai">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>AI Assistant</span>
+        <span class="nav-badge ai-badge">AI</span>
+      </button>
+      <button class="nav-item" data-page="gst-info" id="nav-gst">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>GST Reference</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="settings-btn" id="open-settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Settings</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main-content" id="main-content">
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="breadcrumb" id="breadcrumb">Dashboard</div>
+      </div>
+      <div class="topbar-right">
+        <button class="topbar-action-btn" id="new-invoice-quick-btn" onclick="navigateTo('create-invoice')" title="New Invoice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          New Invoice
+        </button>
+        <div class="gst-compliance-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          GST Compliant
+        </div>
+      </div>
+    </header>
+
+    <!-- Pages -->
+    <div class="page active" id="page-dashboard"></div>
+    <div class="page" id="page-invoices"></div>
+    <div class="page" id="page-create-invoice"></div>
+    <div class="page" id="page-customers"></div>
+    <div class="page" id="page-add-customer"></div>
+    <div class="page" id="page-products"></div>
+    <div class="page" id="page-add-product"></div>
+    <div class="page" id="page-raw-materials"></div>
+    <div class="page" id="page-recipes"></div>
+    <div class="page" id="page-manufacturing"></div>
+    <div class="page" id="page-inventory-history"></div>
+    <div class="page" id="page-ai-assistant"></div>
+    <div class="page" id="page-gst-info"></div>
+  </main>
+
+  <!-- Settings Modal -->
+  <div class="modal-overlay" id="settings-modal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <button class="modal-close" id="close-settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Tabs -->
+        <div class="settings-tabs">
+          <button class="settings-tab active" data-tab="business">Business Profile</button>
+          <button class="settings-tab" data-tab="bank">Bank &amp; Invoice</button>
+          <button class="settings-tab" data-tab="ai">AI Configuration</button>
+          <button class="settings-tab" data-tab="logo">Logo</button>
+          <button class="settings-tab" data-tab="data" style="color:var(--accent-secondary);font-weight:700">📥 Full ERP Backup</button>
+          <button class="settings-tab" data-tab="section-import" style="color:#f59e0b;font-weight:700">🧩 Section Import</button>
+        </div>
+
+        <!-- Business Profile Tab -->
+        <div class="settings-tab-content active" id="tab-business">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="s-business-name">Business Name *</label>
+              <input type="text" id="s-business-name" placeholder="Your Company Pvt. Ltd." />
+            </div>
+            <div class="form-group">
+              <label for="s-business-pan">PAN Number</label>
+              <input type="text" id="s-business-pan" placeholder="AAAPZ1234C" maxlength="10" class="font-mono" />
+            </div>
+            <div class="form-group">
+              <label for="s-business-gstin">GSTIN *</label>
+              <input type="text" id="s-business-gstin" placeholder="27AAAPZ1234C1ZV" maxlength="15" class="font-mono" />
+              <span class="field-hint">15-digit GST Identification Number</span>
+            </div>
+            <div class="form-group">
+              <label for="s-business-state">State / UT</label>
+              <select id="s-business-state"></select>
+            </div>
+            <div class="form-group full-width">
+              <label for="s-business-address">Registered Address</label>
+              <textarea id="s-business-address" rows="2" placeholder="Full registered address including city, state, PIN"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="s-business-email">Email</label>
+              <input type="email" id="s-business-email" placeholder="billing@company.com" />
+            </div>
+            <div class="form-group">
+              <label for="s-business-phone">Phone</label>
+              <input type="tel" id="s-business-phone" placeholder="+91 98765 43210" />
+            </div>
+            <div class="form-group full-width">
+              <label for="s-business-website">Website</label>
+              <input type="url" id="s-business-website" placeholder="https://www.yourcompany.com" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Bank & Invoice Tab -->
+        <div class="settings-tab-content" id="tab-bank">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="s-bank-name">Bank Name</label>
+              <input type="text" id="s-bank-name" placeholder="State Bank of India" />
+            </div>
+            <div class="form-group">
+              <label for="s-bank-acc">Account Number</label>
+              <input type="text" id="s-bank-acc" placeholder="000123456789" class="font-mono" />
+            </div>
+            <div class="form-group">
+              <label for="s-bank-ifsc">IFSC Code</label>
+              <input type="text" id="s-bank-ifsc" placeholder="SBIN0001234" class="font-mono" maxlength="11" />
+            </div>
+            <div class="form-group">
+              <label for="s-invoice-prefix">Invoice Number Prefix</label>
+              <input type="text" id="s-invoice-prefix" placeholder="INV" maxlength="10" />
+              <span class="field-hint">e.g. INV → INV/2025-26/0001</span>
+            </div>
+            <div class="form-group full-width">
+              <label for="s-invoice-terms">Default Terms &amp; Conditions</label>
+              <textarea id="s-invoice-terms" rows="3" placeholder="Payment due within 30 days of invoice date."></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label for="s-invoice-notes">Default Notes</label>
+              <textarea id="s-invoice-notes" rows="2" placeholder="Thank you for your business!"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Tab -->
+        <div class="settings-tab-content" id="tab-ai">
+          <div class="form-grid-2">
+            <div class="form-group full-width">
+              <label for="s-api-key">OpenRouter API Key</label>
+              <div class="input-with-toggle">
+                <input type="password" id="s-api-key" placeholder="sk-or-v1-..." class="font-mono" />
+                <button class="toggle-visibility" id="toggle-api-key" type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <span class="field-hint">Get your key at <a href="https://openrouter.ai" target="_blank" style="color:var(--accent-primary-light)">openrouter.ai</a></span>
+            </div>
+            <div class="form-group full-width">
+              <label for="s-model-name">Model</label>
+              <input type="text" id="s-model-name" placeholder="google/gemma-4-26b-a4b-it:free" class="font-mono" />
+              <span class="field-hint">Any OpenRouter model ID. Free models: google/gemma-4-26b-a4b-it:free, mistralai/mistral-7b-instruct:free</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo Tab -->
+        <div class="settings-tab-content" id="tab-logo">
+          <div class="logo-upload-area" id="logo-upload-area">
+            <input type="file" id="logo-file-input" accept="image/*" hidden />
+            <div class="logo-upload-preview" id="logo-upload-preview">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <p>Click to upload your company logo</p>
+              <span>PNG, JPG, SVG up to 5MB · Will appear on all invoices</span>
+            </div>
+          </div>
+          <button class="btn btn-ghost" style="margin-top:10px;font-size:0.78rem" id="remove-logo-btn">Remove logo</button>
+        </div>
+
+        <!-- Data Backup & Export / Import Tab -->
+        <div class="settings-tab-content" id="tab-data">
+
+          <!-- EXPORT CARD -->
+          <div style="background:var(--bg-input);padding:18px;border-radius:var(--radius-md);border:1px solid var(--border-subtle);margin-bottom:14px">
+            <h3 style="color:#fff;font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="color:var(--accent-secondary)"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export — Download Complete ERP Database
+            </h3>
+            <p style="font-size:0.81rem;color:var(--text-muted);line-height:1.5;margin-bottom:14px">
+              Creates a single <code>.json</code> file containing your entire ERP: company profile, raw materials, recipes, manufacturing batches, products, finished goods, customers, invoices and audit ledgers. Use it to back up, migrate or clone your data.
+            </p>
+            <button type="button" class="btn btn-primary" id="export-json-btn" onclick="downloadFullDataJSON()" style="font-weight:700;display:inline-flex;align-items:center;gap:8px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              📥 Download Complete ERP Data (JSON)
+            </button>
+          </div>
+
+          <!-- IMPORT CARD -->
+          <div style="background:var(--bg-input);padding:18px;border-radius:var(--radius-md);border:1px solid var(--border-subtle)">
+            <h3 style="color:#fff;font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="color:#f59e0b"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3" transform="scale(1,-1) translate(0,-24)"/><polyline points="7 14 12 9 17 14"/><line x1="12" y1="9" x2="12" y2="21"/></svg>
+              Import — Restore from JSON Backup
+            </h3>
+            <p style="font-size:0.81rem;color:var(--text-muted);line-height:1.5;margin-bottom:10px">
+              Select a previously exported <code>invoicewise_full_export_*.json</code> file. All current data will be replaced. A pre-import safety backup is automatically saved to <code>data/pre_import_backup.json</code>.
+            </p>
+
+            <!-- Caution notice -->
+            <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:0.79rem;color:#fca5a5;display:flex;gap:8px;align-items:flex-start">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="flex-shrink:0;margin-top:1px;color:#ef4444"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span><strong>This will overwrite all current data.</strong> Only import a file that was exported from InvoiceWise. The file must contain <code>"appName": "InvoiceWise Manufacturing ERP"</code>.</span>
+            </div>
+
+            <!-- Drop zone -->
+            <div id="import-drop-zone" onclick="document.getElementById('import-file-input').click()"
+              style="border:2px dashed var(--border-subtle);border-radius:10px;padding:22px 16px;text-align:center;cursor:pointer;transition:border-color 0.2s,background 0.2s;margin-bottom:12px"
+              ondragover="event.preventDefault();this.style.borderColor='var(--accent-primary)';this.style.background='rgba(99,102,241,0.06)'"
+              ondragleave="this.style.borderColor='var(--border-subtle)';this.style.background=''"
+              ondrop="handleImportDrop(event)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" style="color:var(--text-muted);margin-bottom:8px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <p id="import-drop-label" style="font-size:0.82rem;color:var(--text-muted);margin:0">Click or drag &amp; drop your <strong style="color:#fff">invoicewise_full_export_*.json</strong> file here</p>
+            </div>
+
+            <input type="file" id="import-file-input" accept=".json,application/json" hidden onchange="handleImportFileSelect(this)" />
+
+            <button type="button" class="btn btn-secondary" id="import-json-btn" onclick="importDataJSON()" disabled
+              style="font-weight:700;display:inline-flex;align-items:center;gap:8px;opacity:0.5;cursor:not-allowed">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              📤 Import &amp; Restore Data
+            </button>
+
+            <!-- Result summary -->
+            <div id="import-result" style="display:none;margin-top:14px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:12px;font-size:0.81rem;color:#6ee7b7"></div>
+          </div>
+
+          <!-- FACTORY RESET CARD -->
+          <div style="background:var(--bg-input);padding:18px;border-radius:var(--radius-md);border:1px solid rgba(239,68,68,0.35);margin-top:16px">
+            <h3 style="color:#ef4444;font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="color:#ef4444"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Danger Zone — Factory Reset / Clean Slate
+            </h3>
+            <p style="font-size:0.81rem;color:var(--text-muted);line-height:1.5;margin-bottom:12px">
+              Permanently wipe all records (products, raw materials, customers, recipes, invoices, manufacturing batches, finished goods, and audit ledgers) to create a completely clean, fresh data panel.
+            </p>
+            <button type="button" class="btn btn-danger" id="reset-all-data-btn" onclick="executeFactoryReset()" style="font-weight:700;display:inline-flex;align-items:center;gap:8px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+              🗑️ Reset All Data (Start Fresh)
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Modular Section Import Tab (Section 2) -->
+        <div class="settings-tab-content" id="tab-section-import">
+          <div style="background:var(--bg-input);padding:18px;border-radius:var(--radius-md);border:1px solid var(--border-subtle);margin-bottom:16px">
+            <h3 style="color:#fff;font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="color:#f59e0b"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              Modular / Fragmented Section Import
+            </h3>
+            <p style="font-size:0.81rem;color:var(--text-muted);line-height:1.5;margin-bottom:16px">
+              Select and import only a specific module or entity from a JSON file without overwriting your entire database. A pre-import safety backup is automatically saved before execution.
+            </p>
+
+            <div class="form-grid-2" style="margin-bottom:14px">
+              <div class="form-group">
+                <label style="font-weight:700;color:#fff">Select Entity Section to Import *</label>
+                <select id="sec-import-target" style="padding:9px 12px;font-size:0.88rem" onchange="updateSectionImportPlaceholder()">
+                  <option value="rawMaterials">Raw Materials Inventory</option>
+                  <option value="recipes">Recipes &amp; Bill of Materials (BOM)</option>
+                  <option value="products">Products &amp; Packaging Variants</option>
+                  <option value="customers">Customers &amp; Clients</option>
+                  <option value="invoices">Sales Invoices</option>
+                  <option value="manufacturingBatches">Manufacturing Batches</option>
+                  <option value="finishedGoods">Finished Goods Stock</option>
+                  <option value="companyProfile">Company Profile &amp; Settings</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label style="font-weight:700;color:#fff">Import Mode *</label>
+                <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
+                  <label style="font-size:0.8rem;color:var(--text-primary);display:flex;align-items:center;gap:6px;cursor:pointer">
+                    <input type="radio" name="sec-import-mode" value="add" checked />
+                    <span><strong>Add New Records</strong> (Default — Safe, skips duplicates)</span>
+                  </label>
+                  <label style="font-size:0.8rem;color:var(--text-primary);display:flex;align-items:center;gap:6px;cursor:pointer">
+                    <input type="radio" name="sec-import-mode" value="merge" />
+                    <span><strong>Merge / Update Existing</strong> (Updates by ID / appends new)</span>
+                  </label>
+                  <label style="font-size:0.8rem;color:#f87171;display:flex;align-items:center;gap:6px;cursor:pointer">
+                    <input type="radio" name="sec-import-mode" value="replace" />
+                    <span><strong>Replace Entire Section</strong> (Overwrites this section only)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upload or Paste toggle -->
+            <div style="margin-bottom:12px;display:flex;gap:10px">
+              <button type="button" class="btn btn-sm btn-secondary" id="sec-import-mode-file-btn" onclick="toggleSecImportInput('file')">📁 Upload JSON File</button>
+              <button type="button" class="btn btn-sm btn-ghost" id="sec-import-mode-paste-btn" onclick="toggleSecImportInput('paste')">📝 Paste JSON Text</button>
+            </div>
+
+            <!-- File Upload Area -->
+            <div id="sec-import-file-container">
+              <div id="sec-import-drop-zone" onclick="document.getElementById('sec-import-file-input').click()"
+                style="border:2px dashed var(--border-subtle);border-radius:10px;padding:18px 16px;text-align:center;cursor:pointer;margin-bottom:10px"
+                ondragover="event.preventDefault();this.style.borderColor='var(--accent-primary)'"
+                ondragleave="this.style.borderColor='var(--border-subtle)'"
+                ondrop="handleSecImportDrop(event)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28" style="color:var(--text-muted);margin-bottom:6px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <p id="sec-import-file-label" style="font-size:0.82rem;color:var(--text-muted);margin:0">Click or drag &amp; drop a section JSON file or standalone array here</p>
+              </div>
+              <input type="file" id="sec-import-file-input" accept=".json,application/json" hidden onchange="handleSecImportFileSelect(this)" />
+            </div>
+
+            <!-- Paste Area -->
+            <div id="sec-import-paste-container" style="display:none;margin-bottom:10px">
+              <textarea id="sec-import-paste-text" rows="7" style="width:100%;font-family:var(--font-mono);font-size:0.78rem;background:var(--bg-card);border:1px solid var(--border-subtle);color:var(--text-primary);padding:10px;border-radius:8px" placeholder="Paste JSON array or section object here..."></textarea>
+            </div>
+
+            <div style="display:flex;gap:10px;margin-top:10px">
+              <button type="button" class="btn btn-secondary" onclick="previewSectionImport()">
+                🔍 Preview &amp; Validate Records
+              </button>
+              <button type="button" class="btn btn-primary" id="sec-import-submit-btn" onclick="executeSectionImport()" disabled style="opacity:0.5;cursor:not-allowed">
+                📤 Confirm &amp; Import Section
+              </button>
+            </div>
+
+            <!-- Preview area -->
+            <div id="sec-import-preview-area" style="display:none;margin-top:14px"></div>
+
+            <!-- Result summary -->
+            <div id="sec-import-result-area" style="display:none;margin-top:14px"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="replay-tour-btn" style="margin-right:auto;font-size:0.78rem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Replay Welcome Tour
+        </button>
+        <button class="btn btn-ghost" id="cancel-settings">Cancel</button>
+        <button class="btn btn-primary" id="save-settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Settings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirm & Mandatory Reason Modal -->
+  <div class="modal-overlay" id="delete-modal" style="z-index:13000 !important">
+    <div class="modal modal-md" style="max-width:520px">
+      <div class="modal-header" style="border-bottom:1px solid rgba(239,68,68,0.25)">
+        <h2 id="delete-modal-title" style="color:#ef4444;display:flex;align-items:center;gap:8px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:#ef4444"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Confirm Deletion</span>
+        </h2>
+        <button type="button" class="modal-close" id="close-delete-modal" onclick="closeDeleteModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding:20px">
+        <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:8px;padding:14px;margin-bottom:16px">
+          <p id="delete-prompt-text" style="font-size:0.92rem;color:#fff;margin-bottom:6px">Are you sure you want to delete <strong id="delete-item-name" style="color:#f87171">this item</strong>?</p>
+          <div id="delete-item-details" style="font-size:0.8rem;color:var(--text-secondary);line-height:1.4">This action will remove the record from active data.</div>
+        </div>
+
+        <!-- Optional Invoices Restock Option -->
+        <div id="delete-restock-container" style="display:none;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:8px;padding:10px 12px;margin-bottom:14px">
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#6ee7b7;cursor:pointer;margin:0">
+            <input type="checkbox" id="delete-restock-checkbox" checked style="width:16px;height:16px;accent-color:#10b981" />
+            <span><strong>Restock Inventory</strong> (Restore variant bottle quantities back to inventory stock)</span>
+          </label>
+        </div>
+
+        <!-- Mandatory Deletion Reason Input -->
+        <div class="form-group" style="margin-bottom:8px">
+          <label for="delete-reason-input" style="font-size:0.84rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px">
+            Reason for Deletion <span style="color:#ef4444">* (Mandatory)</span>
+          </label>
+          <textarea id="delete-reason-input" rows="3" style="width:100%;font-size:0.84rem;padding:10px;border-radius:6px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);resize:vertical;font-family:inherit" placeholder="Explain why this record is being deleted (e.g., entered in error, discontinued, duplicate, supplier return)..." required></textarea>
+          <div id="delete-reason-error" style="color:#ef4444;font-size:0.78rem;display:none;margin-top:5px;font-weight:600">
+            ⚠️ Please enter a valid reason for deletion before proceeding.
+          </div>
+        </div>
+
+        <div style="font-size:0.75rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;line-height:1.4;margin-top:10px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:#f59e0b;flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>The record will be completely removed from active JSON files. A permanent audit entry with your deletion reason, date, and exact time will be preserved in the Audit section.</span>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding:14px 20px">
+        <button type="button" class="btn btn-ghost" id="cancel-delete" onclick="closeDeleteModal()">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirm-delete" onclick="handleConfirmDelete()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+          Confirm &amp; Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animated First Launch Welcome Modal -->
+  <div class="modal-overlay" id="welcome-modal">
+    <div class="modal modal-lg welcome-card">
+      <div class="welcome-header">
+        <div class="logo-placeholder" style="width:48px;height:48px;margin:0 auto 12px">
+          <img src="/logo.png" alt="InvoiceWise Logo" />
+        </div>
+        <h2 id="welcome-title">Welcome to InvoiceWise</h2>
+        <p id="welcome-subtitle">Professional GST Billing &amp; Invoice Intelligence</p>
+      </div>
+
+      <div class="modal-body" id="welcome-body" style="padding:20px 30px">
+        <!-- Slide 1: Features Tour -->
+        <div class="tour-slide active" id="tour-slide-1">
+          <div class="tour-features-grid">
+            <div class="tour-feature-card">
+              <div class="tour-feature-icon" style="background:rgba(99,102,241,0.15);color:var(--accent-primary-light)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <div class="tour-feature-title">Rule 46 GST Invoices</div>
+              <div class="tour-feature-desc">Generate pixel-perfect A4 tax invoices with CGST/SGST/IGST breakdown and instant PDF export.</div>
+            </div>
+
+            <div class="tour-feature-card">
+              <div class="tour-feature-icon" style="background:rgba(6,182,212,0.15);color:var(--accent-secondary)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <div class="tour-feature-title">Customer Directory</div>
+              <div class="tour-feature-desc">Manage B2B and B2C clients, validate 15-digit GSTINs, and auto-apply state supply rules.</div>
+            </div>
+
+            <div class="tour-feature-card">
+              <div class="tour-feature-icon" style="background:rgba(168,85,247,0.15);color:var(--accent-purple)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div class="tour-feature-title">Natural Language AI</div>
+              <div class="tour-feature-desc">Ask anything about your invoices or GST in plain English with live database context integration.</div>
+            </div>
+
+            <div class="tour-feature-card">
+              <div class="tour-feature-icon" style="background:rgba(16,185,129,0.15);color:var(--accent-success)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div class="tour-feature-title">100% Local Data</div>
+              <div class="tour-feature-desc">All your products, invoices, and company records remain safely stored on your local computer.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: User Personalization & AI Setup -->
+        <div class="tour-slide" id="tour-slide-2" style="display:none">
+          <div style="max-width:440px;margin:0 auto;text-align:center">
+            <h3 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px">Welcome! Let's Set Up Your Profile</h3>
+            <p style="font-size:0.83rem;color:var(--text-secondary);margin-bottom:16px">Personalize your workspace and connect AI billing intelligence</p>
+
+            <div class="form-group" style="text-align:left;margin-bottom:12px">
+              <label for="w-user-name">Your Name *</label>
+              <input type="text" id="w-user-name" placeholder="e.g. Siddharth" style="font-size:0.95rem;padding:9px 12px" />
+            </div>
+
+            <div class="form-group" style="text-align:left;margin-bottom:12px">
+              <label for="w-company-name">Company / Business Name (Optional)</label>
+              <input type="text" id="w-company-name" placeholder="e.g. Acme Innovations Pvt. Ltd." style="font-size:0.9rem;padding:8px 12px" />
+            </div>
+
+            <div class="form-group" style="text-align:left;margin-bottom:10px">
+              <label for="w-api-key">OpenRouter API Key (Optional)</label>
+              <input type="password" id="w-api-key" placeholder="sk-or-v1-..." class="font-mono" style="font-size:0.88rem;padding:8px 12px" />
+              <span class="field-hint" style="margin-top:6px;display:block;font-size:0.78rem">
+                🔑 Get your free API key at <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--accent-primary-light);font-weight:600;text-decoration:underline">openrouter.ai/keys</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content:space-between">
+        <div class="tour-dots">
+          <span class="tour-dot active" id="dot-1"></span>
+          <span class="tour-dot" id="dot-2"></span>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-ghost" id="skip-tour-btn" onclick="finishTour(true)">Skip</button>
+          <button class="btn btn-primary" id="next-tour-btn" onclick="nextTourSlide()">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottle Bulk Packaging Modal -->
+  <div class="modal-overlay" id="fill-bottles-modal">
+    <div class="modal" style="max-width:540px">
+      <div class="modal-header">
+        <h2 id="fill-bottles-modal-title">🍾 Package Manufactured Bulk Stock</h2>
+        <button class="modal-close" onclick="closeFillBottlesModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="fill-bottles-modal-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeFillBottlesModal()">Cancel</button>
+        <button class="btn btn-primary" id="confirm-fill-bottles-btn" onclick="submitFillBottles()">
+          Package &amp; Convert Stock →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Variation Deletion Governance Modal -->
+  <div class="modal-overlay" id="delete-variant-modal">
+    <div class="modal" style="max-width:620px">
+      <div class="modal-header">
+        <h2 style="display:flex;align-items:center;gap:8px;color:#f87171">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+          <span id="delvar-modal-title">Delete Product Variation</span>
+        </h2>
+        <button class="modal-close" onclick="closeDeleteVariantModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="delete-variant-modal-body" style="padding:22px">
+        <!-- Rendered dynamically by openDeleteVariantModal() -->
+      </div>
+      <div class="modal-footer" style="justify-content:space-between">
+        <button class="btn btn-ghost" onclick="closeDeleteVariantModal()">Cancel</button>
+        <button class="btn btn-danger" id="confirm-delete-variant-btn" onclick="submitDeleteVariant()" disabled style="opacity:0.5;cursor:not-allowed">
+          🗑️ Confirm Deletion
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- End-to-End Batch Traceability Modal (Section 7 & 11) -->
+  <div class="modal-overlay" id="trace-batch-modal">
+    <div class="modal modal-lg" style="max-width:850px">
+      <div class="modal-header">
+        <h2 id="trace-batch-modal-title" style="display:flex;align-items:center;gap:8px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent-secondary)"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          End-to-End Batch Traceability Lineage
+        </h2>
+        <button class="modal-close" onclick="closeTraceBatchModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="trace-batch-modal-body" style="max-height:75vh;overflow-y:auto;padding:20px"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeTraceBatchModal()">Close Traceability View</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recipe Version History Modal (Section 1) -->
+  <div class="modal-overlay" id="recipe-history-modal">
+    <div class="modal modal-lg" style="max-width:800px">
+      <div class="modal-header">
+        <h2 id="recipe-history-modal-title" style="display:flex;align-items:center;gap:8px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent-primary-light)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Recipe BOM Version History &amp; Immutable Snapshots
+        </h2>
+        <button class="modal-close" onclick="closeRecipeHistoryModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="recipe-history-modal-body" style="max-height:75vh;overflow-y:auto;padding:20px"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeRecipeHistoryModal()">Close History</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dedicated Raw Material Purchase / Stock Increase Modal -->
+  <div class="modal-overlay" id="increase-stock-modal">
+    <div class="modal modal-lg" style="max-width:680px">
+      <div class="modal-header">
+        <h2 style="display:flex;align-items:center;gap:8px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent-secondary)"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          Increase Raw Material Stock
+        </h2>
+        <button class="modal-close" onclick="closeIncreaseStockModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="max-height:75vh;overflow-y:auto;padding:24px">
+        <div class="form-grid-2">
+          <div class="form-group full-width">
+            <label>Raw Material *</label>
+            <select id="incstock-rm-select" onchange="onIncreaseStockRMChange()"></select>
+          </div>
+          <div class="form-group">
+            <label>Quantity Purchased *</label>
+            <input type="number" id="incstock-qty" min="0.0001" step="any" placeholder="e.g. 50" oninput="updateIncreaseStockCalc()" />
+          </div>
+          <div class="form-group">
+            <label>Unit Type</label>
+            <input type="text" id="incstock-unit" readonly style="background:var(--bg-card);color:var(--text-secondary);cursor:not-allowed" />
+          </div>
+        </div>
+
+        <!-- Live Stock Preview Box -->
+        <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:var(--radius-md);padding:14px 18px;margin:16px 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
+          <div>
+            <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em">Current Stock</div>
+            <div id="incstock-cur-stock" class="font-mono" style="font-size:1.05rem;font-weight:700;color:var(--text-primary)">0</div>
+          </div>
+          <div style="border-left:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)">
+            <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em">Quantity to Add</div>
+            <div id="incstock-add-qty" class="font-mono" style="font-size:1.05rem;font-weight:700;color:#60a5fa">+0</div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em">New Stock</div>
+            <div id="incstock-new-stock" class="font-mono" style="font-size:1.05rem;font-weight:700;color:#10b981">0</div>
+          </div>
+        </div>
+
+        <!-- Vendor & Purchase Information (Optional) -->
+        <div style="font-size:0.8rem;font-weight:700;color:var(--accent-secondary);text-transform:uppercase;letter-spacing:0.06em;margin:20px 0 12px;display:flex;align-items:center;gap:8px">
+          <span>Vendor / Purchase Information</span>
+          <span style="font-size:0.68rem;background:var(--bg-elevated);color:var(--text-muted);padding:2px 8px;border-radius:10px;text-transform:none">Optional</span>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Vendor / Supplier Name</label>
+            <input type="text" id="incstock-vendor-name" list="incstock-vendor-list" placeholder="e.g. ABC Chemicals Pvt. Ltd." />
+            <datalist id="incstock-vendor-list"></datalist>
+          </div>
+          <div class="form-group">
+            <label>Vendor GST Number</label>
+            <input type="text" id="incstock-vendor-gst" placeholder="e.g. 09ABCDE1234F1Z5" maxlength="15" style="text-transform:uppercase" />
+          </div>
+          <div class="form-group">
+            <label>Vendor Billing / Invoice Reference</label>
+            <input type="text" id="incstock-vendor-billref" placeholder="e.g. INV-SUP-2026-904" />
+          </div>
+          <div class="form-group">
+            <label>Vendor Invoice Number</label>
+            <input type="text" id="incstock-vendor-inv" placeholder="e.g. BILL-9982" />
+          </div>
+          <div class="form-group">
+            <label>Vendor Address</label>
+            <input type="text" id="incstock-vendor-address" placeholder="e.g. Plot 45, GIDC Industrial Estate, Vadodara" />
+          </div>
+          <div class="form-group">
+            <label>Vendor Contact Phone</label>
+            <input type="text" id="incstock-vendor-contact" placeholder="e.g. +91 98765 43210" />
+          </div>
+          <div class="form-group">
+            <label>Vendor Email</label>
+            <input type="email" id="incstock-vendor-email" placeholder="e.g. sales@vendorchem.com" />
+          </div>
+          <div class="form-group">
+            <label>Vendor Price / Total Cost (₹)</label>
+            <input type="number" id="incstock-vendor-price" min="0" step="any" placeholder="e.g. 12500" />
+          </div>
+          <div class="form-group">
+            <label>Supplier Batch Number / Lot</label>
+            <input type="text" id="incstock-batch-no" placeholder="e.g. RMB-2026-014 or SUP-LOT-99" />
+          </div>
+          <div class="form-group">
+            <label>Purchase Date</label>
+            <input type="date" id="incstock-purchase-date" />
+          </div>
+          <div class="form-group">
+            <label>Display Date Format</label>
+            <select id="incstock-date-format">
+              <option value="DD/MM/YYYY">DD/MM/YYYY (Indian Standard)</option>
+              <option value="YYYY-MM-DD">YYYY-MM-DD (ISO)</option>
+              <option value="MM/DD/YYYY">MM/DD/YYYY (US)</option>
+              <option value="DD-MM-YYYY">DD-MM-YYYY</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Action / Inward Type</label>
+            <select id="incstock-action">
+              <option value="Purchase">Purchase (+ Stock)</option>
+              <option value="Stock Adjustment">Stock Adjustment (+ Stock)</option>
+              <option value="Opening Stock">Opening Stock (+ Stock)</option>
+            </select>
+          </div>
+          <div class="form-group full-width">
+            <label>Notes / Specification</label>
+            <input type="text" id="incstock-notes" placeholder="e.g. Received in 200L sealed drum, COA verified" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeIncreaseStockModal()">Cancel</button>
+        <button class="btn btn-primary" id="incstock-submit-btn" onclick="submitIncreaseStock()">
+          + Add Stock
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dedicated Add Raw Material Master Modal -->
+  <div class="modal-overlay" id="add-rm-modal">
+    <div class="modal modal-lg" style="max-width:680px">
+      <div class="modal-header">
+        <h2 style="display:flex;align-items:center;gap:8px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent-secondary)"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <span id="add-rm-modal-title">New Raw Material Entry</span>
+        </h2>
+        <button class="modal-close" onclick="closeAddRMModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="max-height:75vh;overflow-y:auto;padding:24px">
+        <div class="form-grid-2">
+          <div class="form-group full-width">
+            <label>Raw Material Name *</label>
+            <input type="text" id="modal-rm-name" placeholder="e.g. Glycogen, Ethanol, Perfume Base" />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" id="modal-rm-category" placeholder="e.g. Active Ingredient, Solvent, Packaging" list="modal-rm-cat-list" />
+            <datalist id="modal-rm-cat-list">
+              <option value="Active Ingredient"></option>
+              <option value="Solvent"></option>
+              <option value="Packaging"></option>
+              <option value="General"></option>
+              <option value="Botanical Extract"></option>
+            </datalist>
+          </div>
+          <div class="form-group">
+            <label>Unit of Measure *</label>
+            <select id="modal-rm-unit" onchange="if(this.value==='CUSTOM'){ $('#modal-rm-custom-unit-wrap').style.display='block'; } else { $('#modal-rm-custom-unit-wrap').style.display='none'; }">
+              <option value="kg">kg (Kilogram)</option>
+              <option value="g">g (Gram)</option>
+              <option value="mg">mg (Milligram)</option>
+              <option value="L">L (Liter)</option>
+              <option value="mL">mL (Milliliter)</option>
+              <option value="pcs">pcs (Pieces)</option>
+              <option value="box">box</option>
+              <option value="CUSTOM">+ Custom Unit…</option>
+            </select>
+          </div>
+          <div class="form-group full-width" id="modal-rm-custom-unit-wrap" style="display:none">
+            <label>Custom Unit Name</label>
+            <input type="text" id="modal-rm-custom-unit" placeholder="e.g. drum, barrel, vial" />
+          </div>
+          <div class="form-group">
+            <label>Opening / Purchased Stock</label>
+            <input type="number" id="modal-rm-opening-stock" min="0" step="any" placeholder="e.g. 0 or 100" />
+            <div style="font-size:0.7rem;color:var(--text-muted);margin-top:2px">Creates initial RMB batch if &gt; 0</div>
+          </div>
+          <div class="form-group">
+            <label>Minimum Stock / Reorder Alert</label>
+            <input type="number" id="modal-rm-reorder" min="0" step="any" placeholder="e.g. 10" />
+          </div>
+          <div class="form-group">
+            <label>Cost Per Unit (₹)</label>
+            <input type="number" id="modal-rm-cost" min="0" step="any" placeholder="e.g. 250" />
+          </div>
+          <div class="form-group">
+            <label>Default / Initial Vendor Name</label>
+            <input type="text" id="modal-rm-supplier" placeholder="e.g. Vendor A or Opening Stock" />
+          </div>
+          <div class="form-group full-width">
+            <label>Description / Specification Notes</label>
+            <input type="text" id="modal-rm-notes" placeholder="e.g. USP grade, 99.8% pure" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeAddRMModal()">Cancel</button>
+        <button class="btn btn-primary" id="add-rm-submit-btn" onclick="submitAddRM()">+ Save Material Master</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- View Raw Material Batches Modal -->
+  <div class="modal-overlay" id="view-rm-batches-modal">
+    <div class="modal modal-lg" style="max-width:920px">
+      <div class="modal-header">
+        <h2 style="display:flex;align-items:center;gap:8px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent-secondary)"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <span id="rm-batches-modal-title">Raw Material Batches</span>
+        </h2>
+        <button class="modal-close" onclick="closeRMBatchesModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="rm-batches-modal-body" style="max-height:75vh;overflow-y:auto;padding:20px">
+        <!-- Rendered by openRMBatchesModal() -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeRMBatchesModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Raw Material Vendors Management Modal -->
+  <div class="modal-overlay" id="rm-vendors-modal">
+    <div class="modal modal-lg" style="max-width:960px">
+      <div class="modal-header">
+        <h2 style="display:flex;align-items:center;gap:8px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:#38bdf8"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/></svg>
+          <span id="rm-vendors-modal-title">Raw Material Vendors</span>
+        </h2>
+        <button class="modal-close" onclick="closeRMVendorsModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="rm-vendors-modal-body" style="max-height:75vh;overflow-y:auto;padding:20px">
+        <!-- Rendered dynamically by openRMVendorsModal() -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeRMVendorsModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Raw Material Batch Details Modal -->
+  <div class="modal-overlay" id="rm-batch-details-modal">
+    <div class="modal modal-lg" style="max-width:780px">
+      <div class="modal-header">
+        <h2 style="display:flex;align-items:center;gap:8px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent-secondary)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span id="rm-batch-details-title">Batch Details &amp; Lineage</span>
+        </h2>
+        <button class="modal-close" onclick="closeRMBatchDetailsModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="rm-batch-details-modal-body" style="max-height:75vh;overflow-y:auto;padding:22px">
+        <!-- Rendered by openRMBatchDetailsModal() -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeRMBatchDetailsModal()">Close Details</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Notes Panel -->
+  <div id="notes-tab" class="notes-tab" onclick="toggleNotesPanel()" title="Scratchpad Notes (Click to toggle, drag up/down to move)">📝</div>
+  <div id="notes-panel" class="notes-panel">
+    <div class="notes-header">
+      <span>📝 Scratchpad</span>
+      <button class="btn btn-ghost btn-sm" style="color:var(--text-muted);font-size:1.2rem;line-height:1;padding:0 5px;" onclick="toggleNotesPanel()">&times;</button>
+    </div>
+    <div class="notes-body">
+      <textarea id="notes-textarea" class="notes-textarea" placeholder="Write your notes here... They will be auto-saved." oninput="debouncedSaveNotes()"></textarea>
+    </div>
+    <div class="notes-footer">
+      <span id="notes-status" style="font-size:0.75rem;color:var(--text-muted)"></span>
+    </div>
+  </div>
+
+  <!-- Global Calculator Panel -->
+  <div id="calc-tab" class="calc-tab" onclick="toggleCalcPanel()" title="Calculator (Click to toggle, drag up/down to move)">🧮</div>
+  <div id="calc-panel" class="calc-panel">
+    <div class="calc-header" id="calc-drag-handle" title="Drag to move vertically">
+      <span style="display:flex;align-items:center;gap:6px"><span style="cursor:ns-resize">↕️</span> 🧮 Calculator</span>
+      <button class="btn btn-ghost btn-sm" style="color:var(--text-muted);font-size:1.2rem;line-height:1;padding:0 5px;" onclick="toggleCalcPanel()">&times;</button>
+    </div>
+    <div class="calc-body">
+      <div class="calc-display-container">
+        <div id="calc-history" class="calc-history"></div>
+        <input type="text" id="calc-display" class="calc-display" value="0" readonly />
+      </div>
+      <div class="calc-keypad">
+        <button class="calc-btn calc-action" onclick="calcAction('C')">C</button>
+        <button class="calc-btn calc-action" onclick="calcAction('DEL')">⌫</button>
+        <button class="calc-btn calc-action" onclick="calcAction('%')">%</button>
+        <button class="calc-btn calc-op" onclick="calcAction('/')">÷</button>
+        
+        <button class="calc-btn" onclick="calcAction('7')">7</button>
+        <button class="calc-btn" onclick="calcAction('8')">8</button>
+        <button class="calc-btn" onclick="calcAction('9')">9</button>
+        <button class="calc-btn calc-op" onclick="calcAction('*')">×</button>
+        
+        <button class="calc-btn" onclick="calcAction('4')">4</button>
+        <button class="calc-btn" onclick="calcAction('5')">5</button>
+        <button class="calc-btn" onclick="calcAction('6')">6</button>
+        <button class="calc-btn calc-op" onclick="calcAction('-')">−</button>
+        
+        <button class="calc-btn" onclick="calcAction('1')">1</button>
+        <button class="calc-btn" onclick="calcAction('2')">2</button>
+        <button class="calc-btn" onclick="calcAction('3')">3</button>
+        <button class="calc-btn calc-op" onclick="calcAction('+')">+</button>
+        
+        <button class="calc-btn" onclick="calcAction('+/-')">±</button>
+        <button class="calc-btn" onclick="calcAction('0')">0</button>
+        <button class="calc-btn" onclick="calcAction('.')">.</button>
+        <button class="calc-btn calc-equals" onclick="calcAction('=')">=</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="unitConversion.js?v=3.1.1"></script>
+  <script src="app.js?v=3.1.1"></script>
+  <script src="invoice-print.js?v=3.1.1"></script>
+</body>
+</html>

@@ -1,0 +1,2105 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/products",
+      "line": 669
+    },
+    {
+      "method": "POST",
+      "path": "/api/products",
+      "line": 675
+    },
+    {
+      "method": "PUT",
+      "path": "/api/products/:id",
+      "line": 746
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/products/:id",
+      "line": 849
+    },
+    {
+      "method": "GET",
+      "path": "/api/products/:id",
+      "line": 894
+    },
+    {
+      "method": "GET",
+      "path": "/api/products/:productId/variants/:variantId/deletion-impact",
+      "line": 902
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/products/:productId/variants/:variantId",
+      "line": 984
+    },
+    {
+      "method": "POST",
+      "path": "/api/products/:id/fill-bottles",
+      "line": 1256
+    },
+    {
+      "method": "POST",
+      "path": "/api/products/:id/update-variant-stock",
+      "line": 1577
+    },
+    {
+      "method": "GET",
+      "path": "/api/customers",
+      "line": 1731
+    },
+    {
+      "method": "POST",
+      "path": "/api/customers",
+      "line": 1737
+    },
+    {
+      "method": "PUT",
+      "path": "/api/customers/:id",
+      "line": 1748
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/customers/:id",
+      "line": 1759
+    },
+    {
+      "method": "GET",
+      "path": "/api/invoices",
+      "line": 1786
+    },
+    {
+      "method": "POST",
+      "path": "/api/invoices",
+      "line": 1792
+    },
+    {
+      "method": "PUT",
+      "path": "/api/invoices/:id",
+      "line": 2096
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/invoices/:id",
+      "line": 2127
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/invoices/:id",
+      "line": 2158
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/audit-ledgers",
+      "line": 2268
+    },
+    {
+      "method": "GET",
+      "path": "/api/settings",
+      "line": 2279
+    },
+    {
+      "method": "PUT",
+      "path": "/api/settings",
+      "line": 2285
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/reset-data",
+      "line": 2293
+    },
+    {
+      "method": "GET",
+      "path": "/api/export-data",
+      "line": 2370
+    },
+    {
+      "method": "POST",
+      "path": "/api/import-data",
+      "line": 2417
+    },
+    {
+      "method": "POST",
+      "path": "/api/import-data/:section",
+      "line": 2540
+    },
+    {
+      "method": "GET",
+      "path": "/api/raw-materials",
+      "line": 2955
+    },
+    {
+      "method": "GET",
+      "path": "/api/raw-materials/:id",
+      "line": 2961
+    },
+    {
+      "method": "POST",
+      "path": "/api/raw-materials",
+      "line": 2969
+    },
+    {
+      "method": "PUT",
+      "path": "/api/raw-materials/:id",
+      "line": 3102
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/raw-materials/:id",
+      "line": 3164
+    },
+    {
+      "method": "POST",
+      "path": "/api/raw-materials/:id/add-stock",
+      "line": 3312
+    },
+    {
+      "method": "POST",
+      "path": "/api/raw-materials/:id/increase-stock",
+      "line": 3464
+    },
+    {
+      "method": "POST",
+      "path": "/api/raw-materials/increase-stock",
+      "line": 3469
+    },
+    {
+      "method": "GET",
+      "path": "/api/raw-material-batches",
+      "line": 3478
+    },
+    {
+      "method": "GET",
+      "path": "/api/raw-materials/:id/batches",
+      "line": 3483
+    },
+    {
+      "method": "GET",
+      "path": "/api/raw-materials/:id/history",
+      "line": 3504
+    },
+    {
+      "method": "GET",
+      "path": "/api/raw-materials/:id/vendors",
+      "line": 3512
+    },
+    {
+      "method": "POST",
+      "path": "/api/raw-materials/:id/delete-vendor",
+      "line": 3576
+    },
+    {
+      "method": "GET",
+      "path": "/api/raw-material-batches/:id",
+      "line": 3668
+    },
+    {
+      "method": "GET",
+      "path": "/api/raw-material-batches/:id/traceability",
+      "line": 3681
+    },
+    {
+      "method": "POST",
+      "path": "/api/raw-materials/:id/batches",
+      "line": 3767
+    },
+    {
+      "method": "GET",
+      "path": "/api/raw-material-transactions",
+      "line": 3812
+    },
+    {
+      "method": "GET",
+      "path": "/api/recipes",
+      "line": 3821
+    },
+    {
+      "method": "POST",
+      "path": "/api/recipes",
+      "line": 3827
+    },
+    {
+      "method": "PUT",
+      "path": "/api/recipes/:id",
+      "line": 3889
+    },
+    {
+      "method": "GET",
+      "path": "/api/recipes/:id/history",
+      "line": 3963
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/recipes/:id",
+      "line": 3981
+    },
+    {
+      "method": "POST",
+      "path": "/api/manufacturing-batches/preview",
+      "line": 4212
+    },
+    {
+      "method": "POST",
+      "path": "/api/manufacturing/commit",
+      "line": 4231
+    },
+    {
+      "method": "POST",
+      "path": "/api/manufacturing-batches/commit",
+      "line": 4236
+    },
+    {
+      "method": "GET",
+      "path": "/api/manufacturing-batches",
+      "line": 4666
+    },
+    {
+      "method": "GET",
+      "path": "/api/manufacturing-batches/:id/traceability",
+      "line": 4673
+    },
+    {
+      "method": "GET",
+      "path": "/api/manufacturing-audit/verify",
+      "line": 4743
+    },
+    {
+      "method": "GET",
+      "path": "/api/manufacturing-audit-ledger",
+      "line": 4755
+    },
+    {
+      "method": "GET",
+      "path": "/api/audit-ledger/export",
+      "line": 5259
+    },
+    {
+      "method": "GET",
+      "path": "/api/manufacturing-audit-ledger/export",
+      "line": 5260
+    },
+    {
+      "method": "GET",
+      "path": "/api/finished-goods",
+      "line": 5263
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/finished-goods/:id",
+      "line": 5269
+    },
+    {
+      "method": "GET",
+      "path": "/api/finished-goods-transactions",
+      "line": 5323
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/manufacturing-batches/:id",
+      "line": 5329
+    },
+    {
+      "method": "GET",
+      "path": "/api/context",
+      "line": 5372
+    },
+    {
+      "method": "GET",
+      "path": "/api/stats",
+      "line": 5415
+    },
+    {
+      "method": "POST",
+      "path": "/api/ai/invoke",
+      "line": 5471
+    },
+    {
+      "method": "GET",
+      "path": "/api/notes",
+      "line": 5526
+    },
+    {
+      "method": "POST",
+      "path": "/api/notes",
+      "line": 5535
+    },
+    {
+      "method": "GET",
+      "path": "*",
+      "line": 5546
+    }
+  ],
+  "fileOperations": {
+    "products.json": {
+      "reads": [
+        {
+          "lineNum": 488,
+          "code": "const prdData     = readJSON(PRODUCTS_FILE)        || { products: [] };",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 670,
+          "code": "const d = readJSON(PRODUCTS_FILE);",
+          "route": "GET /api/products"
+        },
+        {
+          "lineNum": 676,
+          "code": "const d = readJSON(PRODUCTS_FILE);",
+          "route": "POST /api/products"
+        },
+        {
+          "lineNum": 747,
+          "code": "const d = readJSON(PRODUCTS_FILE);",
+          "route": "PUT /api/products/:id"
+        },
+        {
+          "lineNum": 850,
+          "code": "const d = readJSON(PRODUCTS_FILE);",
+          "route": "DELETE /api/products/:id"
+        },
+        {
+          "lineNum": 895,
+          "code": "const d = readJSON(PRODUCTS_FILE);",
+          "route": "GET /api/products/:id"
+        },
+        {
+          "lineNum": 904,
+          "code": "const prdData = readJSON(PRODUCTS_FILE);",
+          "route": "GET /api/products/:productId/variants/:variantId/deletion-impact"
+        },
+        {
+          "lineNum": 986,
+          "code": "const prdData = readJSON(PRODUCTS_FILE);",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1264,
+          "code": "const prdData = readJSON(PRODUCTS_FILE);",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 1578,
+          "code": "const prdData = readJSON(PRODUCTS_FILE);",
+          "route": "POST /api/products/:id/update-variant-stock"
+        },
+        {
+          "lineNum": 1816,
+          "code": "const prdData = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 1915,
+          "code": "const prdData = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2181,
+          "code": "const prdData = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "DELETE /api/invoices/:id"
+        },
+        {
+          "lineNum": 2373,
+          "code": "const products      = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2472,
+          "code": "products:                    readJSON(PRODUCTS_FILE) || {},",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2593,
+          "code": "products: readJSON(PRODUCTS_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 2745,
+          "code": "const d = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 3174,
+          "code": "const prdData = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3996,
+          "code": "const prdData = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "DELETE /api/recipes/:id"
+        },
+        {
+          "lineNum": 4507,
+          "code": "const linkedPrdData    = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 4607,
+          "code": "const prdData6 = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 4678,
+          "code": "const productData  = readJSON(PRODUCTS_FILE)              || { products: [] };",
+          "route": "GET /api/manufacturing-batches/:id/traceability"
+        },
+        {
+          "lineNum": 4818,
+          "code": "const productData  = readJSON(PRODUCTS_FILE)              || { products: [] };",
+          "route": "GET /api/manufacturing-audit-ledger"
+        },
+        {
+          "lineNum": 5290,
+          "code": "const prdData = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "DELETE /api/finished-goods/:id"
+        },
+        {
+          "lineNum": 5374,
+          "code": "const prodData   = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "GET /api/context"
+        },
+        {
+          "lineNum": 5416,
+          "code": "const prodData   = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "GET /api/stats"
+        },
+        {
+          "lineNum": 5479,
+          "code": "const prodData   = readJSON(PRODUCTS_FILE) || { products: [] };",
+          "route": "POST /api/ai/invoke"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 602,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, prdData);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 711,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, d);",
+          "route": "POST /api/products"
+        },
+        {
+          "lineNum": 845,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, d);",
+          "route": "PUT /api/products/:id"
+        },
+        {
+          "lineNum": 860,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, d);",
+          "route": "DELETE /api/products/:id"
+        },
+        {
+          "lineNum": 1213,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, prdData);",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1456,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, prdData);",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 1718,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, prdData);",
+          "route": "POST /api/products/:id/update-variant-stock"
+        },
+        {
+          "lineNum": 1987,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, prdData);",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2240,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, prdData);",
+          "route": "DELETE /api/invoices/:id"
+        },
+        {
+          "lineNum": 2337,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, { products: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2490,
+          "code": "writeJSON(PRODUCTS_FILE, { products: productsList, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2781,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, d);",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 4001,
+          "code": "if (prdChanged) { prdData.lastUpdated = new Date().toISOString(); writeJSONAtomic(PRODUCTS_FILE, prdData); }",
+          "route": "DELETE /api/recipes/:id"
+        },
+        {
+          "lineNum": 4641,
+          "code": "writeJSONAtomic(PRODUCTS_FILE, prdData6);",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 5305,
+          "code": "if (prdChanged) { prdData.lastUpdated = new Date().toISOString(); writeJSONAtomic(PRODUCTS_FILE, prdData); }",
+          "route": "DELETE /api/finished-goods/:id"
+        }
+      ]
+    },
+    "settings.json": {
+      "reads": [
+        {
+          "lineNum": 1815,
+          "code": "const settings = readJSON(SETTINGS_FILE) || {};",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2280,
+          "code": "const s = readJSON(SETTINGS_FILE);",
+          "route": "GET /api/settings"
+        },
+        {
+          "lineNum": 2286,
+          "code": "const current = readJSON(SETTINGS_FILE) || {};",
+          "route": "PUT /api/settings"
+        },
+        {
+          "lineNum": 2372,
+          "code": "const settings      = readJSON(SETTINGS_FILE) || {};",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2471,
+          "code": "settings:                    readJSON(SETTINGS_FILE) || {},",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2592,
+          "code": "settings: readJSON(SETTINGS_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 2920,
+          "code": "const current = readJSON(SETTINGS_FILE) || {};",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 4822,
+          "code": "const settings     = readJSON(SETTINGS_FILE)              || {};",
+          "route": "GET /api/manufacturing-audit-ledger"
+        },
+        {
+          "lineNum": 5373,
+          "code": "const settings   = readJSON(SETTINGS_FILE) || {};",
+          "route": "GET /api/context"
+        },
+        {
+          "lineNum": 5474,
+          "code": "const settings = readJSON(SETTINGS_FILE);",
+          "route": "POST /api/ai/invoke"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 2288,
+          "code": "writeJSON(SETTINGS_FILE, updated);",
+          "route": "PUT /api/settings"
+        },
+        {
+          "lineNum": 2336,
+          "code": "writeJSONAtomic(SETTINGS_FILE, defaultSettings);",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2487,
+          "code": "writeJSON(SETTINGS_FILE, profileObj);",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2922,
+          "code": "writeJSONAtomic(SETTINGS_FILE, updated);",
+          "route": "POST /api/import-data/:section"
+        }
+      ]
+    },
+    "customers.json": {
+      "reads": [
+        {
+          "lineNum": 1732,
+          "code": "const d = readJSON(CUSTOMERS_FILE);",
+          "route": "GET /api/customers"
+        },
+        {
+          "lineNum": 1738,
+          "code": "const d = readJSON(CUSTOMERS_FILE);",
+          "route": "POST /api/customers"
+        },
+        {
+          "lineNum": 1749,
+          "code": "const d = readJSON(CUSTOMERS_FILE);",
+          "route": "PUT /api/customers/:id"
+        },
+        {
+          "lineNum": 1760,
+          "code": "const d = readJSON(CUSTOMERS_FILE);",
+          "route": "DELETE /api/customers/:id"
+        },
+        {
+          "lineNum": 2374,
+          "code": "const customers     = readJSON(CUSTOMERS_FILE) || { customers: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2473,
+          "code": "customers:                   readJSON(CUSTOMERS_FILE) || {},",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2594,
+          "code": "customers: readJSON(CUSTOMERS_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 2786,
+          "code": "const d = readJSON(CUSTOMERS_FILE) || { customers: [] };",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 5375,
+          "code": "const cusData    = readJSON(CUSTOMERS_FILE) || { customers: [] };",
+          "route": "GET /api/context"
+        },
+        {
+          "lineNum": 5417,
+          "code": "const cusData    = readJSON(CUSTOMERS_FILE) || { customers: [] };",
+          "route": "GET /api/stats"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 1744,
+          "code": "writeJSON(CUSTOMERS_FILE, d);",
+          "route": "POST /api/customers"
+        },
+        {
+          "lineNum": 1755,
+          "code": "writeJSON(CUSTOMERS_FILE, d);",
+          "route": "PUT /api/customers/:id"
+        },
+        {
+          "lineNum": 1770,
+          "code": "writeJSONAtomic(CUSTOMERS_FILE, d);",
+          "route": "DELETE /api/customers/:id"
+        },
+        {
+          "lineNum": 2338,
+          "code": "writeJSONAtomic(CUSTOMERS_FILE, { customers: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2493,
+          "code": "writeJSON(CUSTOMERS_FILE, { customers: customersList, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2821,
+          "code": "writeJSONAtomic(CUSTOMERS_FILE, d);",
+          "route": "POST /api/import-data/:section"
+        }
+      ]
+    },
+    "invoices.json": {
+      "reads": [
+        {
+          "lineNum": 446,
+          "code": "const invData = readJSON(INVOICES_FILE);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 1787,
+          "code": "const d = readJSON(INVOICES_FILE);",
+          "route": "GET /api/invoices"
+        },
+        {
+          "lineNum": 1813,
+          "code": "const d = readJSON(INVOICES_FILE);",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2097,
+          "code": "const d = readJSON(INVOICES_FILE);",
+          "route": "PUT /api/invoices/:id"
+        },
+        {
+          "lineNum": 2128,
+          "code": "const d = readJSON(INVOICES_FILE);",
+          "route": "PATCH /api/invoices/:id"
+        },
+        {
+          "lineNum": 2159,
+          "code": "const d = readJSON(INVOICES_FILE);",
+          "route": "DELETE /api/invoices/:id"
+        },
+        {
+          "lineNum": 2375,
+          "code": "const invoices      = readJSON(INVOICES_FILE) || { invoices: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2474,
+          "code": "invoices:                    readJSON(INVOICES_FILE) || {},",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2595,
+          "code": "invoices: readJSON(INVOICES_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 2826,
+          "code": "const d = readJSON(INVOICES_FILE) || { invoices: [] };",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 3688,
+          "code": "const invoiceData  = readJSON(INVOICES_FILE)              || { invoices: [] };",
+          "route": "GET /api/raw-material-batches/:id/traceability"
+        },
+        {
+          "lineNum": 4679,
+          "code": "const invoiceData  = readJSON(INVOICES_FILE)              || { invoices: [] };",
+          "route": "GET /api/manufacturing-batches/:id/traceability"
+        },
+        {
+          "lineNum": 4817,
+          "code": "const invoiceData  = readJSON(INVOICES_FILE)              || { invoices: [] };",
+          "route": "GET /api/manufacturing-audit-ledger"
+        },
+        {
+          "lineNum": 5376,
+          "code": "const invData    = readJSON(INVOICES_FILE) || { invoices: [] };",
+          "route": "GET /api/context"
+        },
+        {
+          "lineNum": 5418,
+          "code": "const invData    = readJSON(INVOICES_FILE) || { invoices: [] };",
+          "route": "GET /api/stats"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 470,
+          "code": "writeJSONAtomic(INVOICES_FILE, invData);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 1907,
+          "code": "writeJSON(INVOICES_FILE, d);",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2118,
+          "code": "writeJSONAtomic(INVOICES_FILE, d);",
+          "route": "PUT /api/invoices/:id"
+        },
+        {
+          "lineNum": 2149,
+          "code": "writeJSONAtomic(INVOICES_FILE, d);",
+          "route": "PATCH /api/invoices/:id"
+        },
+        {
+          "lineNum": 2251,
+          "code": "writeJSONAtomic(INVOICES_FILE, d);",
+          "route": "DELETE /api/invoices/:id"
+        },
+        {
+          "lineNum": 2339,
+          "code": "writeJSONAtomic(INVOICES_FILE, { invoices: [], lastInvoiceSeq: 0, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2496,
+          "code": "writeJSON(INVOICES_FILE, { invoices: invoicesList, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2856,
+          "code": "writeJSONAtomic(INVOICES_FILE, d);",
+          "route": "POST /api/import-data/:section"
+        }
+      ]
+    },
+    "raw_materials.json": {
+      "reads": [
+        {
+          "lineNum": 263,
+          "code": "const rmData = readJSON(RAW_MATERIALS_FILE);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 944,
+          "code": "const rmData = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "GET /api/products/:productId/variants/:variantId/deletion-impact"
+        },
+        {
+          "lineNum": 1014,
+          "code": "const rmData = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1361,
+          "code": "rmData = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 2376,
+          "code": "const rawMaterials  = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2475,
+          "code": "raw_materials:               readJSON(RAW_MATERIALS_FILE) || {},",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2596,
+          "code": "raw_materials: readJSON(RAW_MATERIALS_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 2656,
+          "code": "const d = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 2956,
+          "code": "const d = readJSON(RAW_MATERIALS_FILE);",
+          "route": "GET /api/raw-materials"
+        },
+        {
+          "lineNum": 2962,
+          "code": "const d = readJSON(RAW_MATERIALS_FILE);",
+          "route": "GET /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 2970,
+          "code": "const d = readJSON(RAW_MATERIALS_FILE);",
+          "route": "POST /api/raw-materials"
+        },
+        {
+          "lineNum": 3103,
+          "code": "const d = readJSON(RAW_MATERIALS_FILE);",
+          "route": "PUT /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3165,
+          "code": "const d = readJSON(RAW_MATERIALS_FILE);",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3313,
+          "code": "const rmData  = readJSON(RAW_MATERIALS_FILE);",
+          "route": "POST /api/raw-materials/:id/add-stock"
+        },
+        {
+          "lineNum": 3484,
+          "code": "const rmData = readJSON(RAW_MATERIALS_FILE);",
+          "route": "GET /api/raw-materials/:id/batches"
+        },
+        {
+          "lineNum": 3513,
+          "code": "const rmData = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "GET /api/raw-materials/:id/vendors"
+        },
+        {
+          "lineNum": 3577,
+          "code": "const rmData = readJSON(RAW_MATERIALS_FILE);",
+          "route": "POST /api/raw-materials/:id/delete-vendor"
+        },
+        {
+          "lineNum": 3768,
+          "code": "const rmData = readJSON(RAW_MATERIALS_FILE);",
+          "route": "POST /api/raw-materials/:id/batches"
+        },
+        {
+          "lineNum": 3839,
+          "code": "const rmData = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "POST /api/recipes"
+        },
+        {
+          "lineNum": 3901,
+          "code": "const rmData = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "PUT /api/recipes/:id"
+        },
+        {
+          "lineNum": 4214,
+          "code": "const rmData     = readJSON(RAW_MATERIALS_FILE);",
+          "route": "POST /api/manufacturing-batches/preview"
+        },
+        {
+          "lineNum": 4268,
+          "code": "const rmData       = readJSON(RAW_MATERIALS_FILE);",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 5377,
+          "code": "const rmData     = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "GET /api/context"
+        },
+        {
+          "lineNum": 5419,
+          "code": "const rmData     = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "GET /api/stats"
+        },
+        {
+          "lineNum": 5480,
+          "code": "const rmData     = readJSON(RAW_MATERIALS_FILE) || { raw_materials: [] };",
+          "route": "POST /api/ai/invoke"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 371,
+          "code": "writeJSONAtomic(RAW_MATERIALS_FILE, rmData);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 1181,
+          "code": "writeJSONAtomic(RAW_MATERIALS_FILE, rmData);",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1468,
+          "code": "writeJSONAtomic(RAW_MATERIALS_FILE, rmData);",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 2340,
+          "code": "writeJSONAtomic(RAW_MATERIALS_FILE, { raw_materials: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2499,
+          "code": "writeJSON(RAW_MATERIALS_FILE, { raw_materials: rawMaterialsList, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2694,
+          "code": "writeJSONAtomic(RAW_MATERIALS_FILE, d);",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 3008,
+          "code": "writeJSON(RAW_MATERIALS_FILE, d);",
+          "route": "POST /api/raw-materials"
+        },
+        {
+          "lineNum": 3138,
+          "code": "writeJSON(RAW_MATERIALS_FILE, d);",
+          "route": "PUT /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3286,
+          "code": "writeJSONAtomic(RAW_MATERIALS_FILE, d);",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3446,
+          "code": "writeJSONAtomic(RAW_MATERIALS_FILE, rmData);",
+          "route": "POST /api/raw-materials/:id/add-stock"
+        },
+        {
+          "lineNum": 3642,
+          "code": "writeJSONAtomic(RAW_MATERIALS_FILE, rmData);",
+          "route": "POST /api/raw-materials/:id/delete-vendor"
+        },
+        {
+          "lineNum": 4652,
+          "code": "writeJSONAtomic(RAW_MATERIALS_FILE,         rmData);",
+          "route": "POST /api/manufacturing-batches/commit"
+        }
+      ]
+    },
+    "recipes.json": {
+      "reads": [
+        {
+          "lineNum": 487,
+          "code": "const recipeData  = readJSON(RECIPES_FILE)         || { recipes: [] };",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 864,
+          "code": "const recData = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "DELETE /api/products/:id"
+        },
+        {
+          "lineNum": 1294,
+          "code": "const recData = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 1615,
+          "code": "const recData = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "POST /api/products/:id/update-variant-stock"
+        },
+        {
+          "lineNum": 2377,
+          "code": "const recipes       = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2476,
+          "code": "recipes:                     readJSON(RECIPES_FILE) || {},",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2597,
+          "code": "recipes: readJSON(RECIPES_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 2699,
+          "code": "const d = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 3213,
+          "code": "const recData = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3822,
+          "code": "const d = readJSON(RECIPES_FILE);",
+          "route": "GET /api/recipes"
+        },
+        {
+          "lineNum": 3828,
+          "code": "const d = readJSON(RECIPES_FILE);",
+          "route": "POST /api/recipes"
+        },
+        {
+          "lineNum": 3890,
+          "code": "const d = readJSON(RECIPES_FILE);",
+          "route": "PUT /api/recipes/:id"
+        },
+        {
+          "lineNum": 3964,
+          "code": "const recipeData = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "GET /api/recipes/:id/history"
+        },
+        {
+          "lineNum": 3982,
+          "code": "const d = readJSON(RECIPES_FILE);",
+          "route": "DELETE /api/recipes/:id"
+        },
+        {
+          "lineNum": 4213,
+          "code": "const recipeData = readJSON(RECIPES_FILE);",
+          "route": "POST /api/manufacturing-batches/preview"
+        },
+        {
+          "lineNum": 4275,
+          "code": "const recipeData   = readJSON(RECIPES_FILE);",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 4506,
+          "code": "const linkedRecipeData = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 4677,
+          "code": "const recipeData   = readJSON(RECIPES_FILE)               || { recipes: [] };",
+          "route": "GET /api/manufacturing-batches/:id/traceability"
+        },
+        {
+          "lineNum": 5291,
+          "code": "const recData = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "DELETE /api/finished-goods/:id"
+        },
+        {
+          "lineNum": 5379,
+          "code": "const recipeData = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "GET /api/context"
+        },
+        {
+          "lineNum": 5481,
+          "code": "const recipeData = readJSON(RECIPES_FILE) || { recipes: [] };",
+          "route": "POST /api/ai/invoke"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 598,
+          "code": "writeJSONAtomic(RECIPES_FILE, recipeData);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 869,
+          "code": "if (recChanged) { recData.lastUpdated = new Date().toISOString(); writeJSONAtomic(RECIPES_FILE, recData); }",
+          "route": "DELETE /api/products/:id"
+        },
+        {
+          "lineNum": 2341,
+          "code": "writeJSONAtomic(RECIPES_FILE, { recipes: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2502,
+          "code": "writeJSON(RECIPES_FILE, { recipes: recipesList, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2740,
+          "code": "writeJSONAtomic(RECIPES_FILE, d);",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 3885,
+          "code": "writeJSONAtomic(RECIPES_FILE, d);",
+          "route": "POST /api/recipes"
+        },
+        {
+          "lineNum": 3959,
+          "code": "writeJSONAtomic(RECIPES_FILE, d);",
+          "route": "PUT /api/recipes/:id"
+        },
+        {
+          "lineNum": 3992,
+          "code": "writeJSONAtomic(RECIPES_FILE, d);",
+          "route": "DELETE /api/recipes/:id"
+        }
+      ]
+    },
+    "recipe_history.json": {
+      "reads": [
+        {
+          "lineNum": 2378,
+          "code": "const recipeHistory = readJSON(RECIPE_HISTORY_FILE) || { recipe_history: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 3917,
+          "code": "const historyData = readJSON(RECIPE_HISTORY_FILE) || { recipe_history: [] };",
+          "route": "PUT /api/recipes/:id"
+        },
+        {
+          "lineNum": 3968,
+          "code": "const historyData = readJSON(RECIPE_HISTORY_FILE) || { recipe_history: [] };",
+          "route": "GET /api/recipes/:id/history"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 2273,
+          "code": "writeJSONAtomic(RECIPE_HISTORY_FILE,      { recipe_history: [], lastUpdated: now });",
+          "route": "DELETE /api/audit-ledgers"
+        },
+        {
+          "lineNum": 2342,
+          "code": "writeJSONAtomic(RECIPE_HISTORY_FILE, { recipe_history: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 3928,
+          "code": "writeJSONAtomic(RECIPE_HISTORY_FILE, historyData);",
+          "route": "PUT /api/recipes/:id"
+        }
+      ]
+    },
+    "manufacturing_batches.json": {
+      "reads": [
+        {
+          "lineNum": 489,
+          "code": "const batchData   = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 1872,
+          "code": "const batchDataStore = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2379,
+          "code": "const batches       = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2477,
+          "code": "manufacturing_batches:       readJSON(MANUFACTURING_BATCHES_FILE) || {},",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2598,
+          "code": "manufacturing_batches: readJSON(MANUFACTURING_BATCHES_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 2861,
+          "code": "const d = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 3249,
+          "code": "const batchData = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3686,
+          "code": "const mfgBatchData = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "GET /api/raw-material-batches/:id/traceability"
+        },
+        {
+          "lineNum": 4273,
+          "code": "const batchData    = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 4667,
+          "code": "const d = readJSON(MANUFACTURING_BATCHES_FILE);",
+          "route": "GET /api/manufacturing-batches"
+        },
+        {
+          "lineNum": 4675,
+          "code": "const batchData    = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "GET /api/manufacturing-batches/:id/traceability"
+        },
+        {
+          "lineNum": 4815,
+          "code": "const batchData    = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "GET /api/manufacturing-audit-ledger"
+        },
+        {
+          "lineNum": 5330,
+          "code": "const d = readJSON(MANUFACTURING_BATCHES_FILE);",
+          "route": "DELETE /api/manufacturing-batches/:id"
+        },
+        {
+          "lineNum": 5380,
+          "code": "const batchData  = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "GET /api/context"
+        },
+        {
+          "lineNum": 5421,
+          "code": "const batchData  = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "GET /api/stats"
+        },
+        {
+          "lineNum": 5483,
+          "code": "const batchData  = readJSON(MANUFACTURING_BATCHES_FILE) || { manufacturing_batches: [] };",
+          "route": "POST /api/ai/invoke"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 2343,
+          "code": "writeJSONAtomic(MANUFACTURING_BATCHES_FILE, { manufacturing_batches: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2505,
+          "code": "writeJSON(MANUFACTURING_BATCHES_FILE, { manufacturing_batches: mfgBatchesList, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2885,
+          "code": "writeJSONAtomic(MANUFACTURING_BATCHES_FILE, d);",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 4657,
+          "code": "writeJSONAtomic(MANUFACTURING_BATCHES_FILE, batchData);",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 5340,
+          "code": "writeJSONAtomic(MANUFACTURING_BATCHES_FILE, d);",
+          "route": "DELETE /api/manufacturing-batches/:id"
+        }
+      ]
+    },
+    "manufacturing_audit.json": {
+      "reads": [
+        {
+          "lineNum": 221,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 385,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 615,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 658,
+          "code": "const mfgAuditData = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 715,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "POST /api/products"
+        },
+        {
+          "lineNum": 777,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "PUT /api/products/:id"
+        },
+        {
+          "lineNum": 1015,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1510,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 2072,
+          "code": "const mfgAuditData = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2380,
+          "code": "const mfgAudit      = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 3180,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3219,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3255,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3673,
+          "code": "const mfgAudit = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "GET /api/raw-material-batches/:id"
+        },
+        {
+          "lineNum": 3685,
+          "code": "const mfgAuditData = readJSON(MANUFACTURING_AUDIT_FILE)   || { manufacturing_audit: [] };",
+          "route": "GET /api/raw-material-batches/:id/traceability"
+        },
+        {
+          "lineNum": 4274,
+          "code": "const mfgAuditData = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 4676,
+          "code": "const mfgAuditData = readJSON(MANUFACTURING_AUDIT_FILE)   || { manufacturing_audit: [] };",
+          "route": "GET /api/manufacturing-batches/:id/traceability"
+        },
+        {
+          "lineNum": 4745,
+          "code": "const mfgAuditData = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "GET /api/manufacturing-audit/verify"
+        },
+        {
+          "lineNum": 4757,
+          "code": "const mfgAuditData = readJSON(MANUFACTURING_AUDIT_FILE) || { manufacturing_audit: [] };",
+          "route": "GET /api/manufacturing-audit-ledger"
+        },
+        {
+          "lineNum": 4816,
+          "code": "const mfgAuditData = readJSON(MANUFACTURING_AUDIT_FILE)   || { manufacturing_audit: [] };",
+          "route": "GET /api/manufacturing-audit-ledger"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 396,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAudit);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 618,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAudit);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 661,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAuditData);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 739,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAudit);",
+          "route": "POST /api/products"
+        },
+        {
+          "lineNum": 833,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAudit);",
+          "route": "PUT /api/products/:id"
+        },
+        {
+          "lineNum": 1241,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAudit);",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1533,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAudit);",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 2090,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAuditData);",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2272,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, { manufacturing_audit: [], lastUpdated: now });",
+          "route": "DELETE /api/audit-ledgers"
+        },
+        {
+          "lineNum": 2344,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, { manufacturing_audit: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 3205,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAudit);",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3242,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAudit);",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3278,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE, mfgAudit);",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 4658,
+          "code": "writeJSONAtomic(MANUFACTURING_AUDIT_FILE,   mfgAuditData);",
+          "route": "POST /api/manufacturing-batches/commit"
+        }
+      ]
+    },
+    "raw_material_transactions.json": {
+      "reads": [
+        {
+          "lineNum": 222,
+          "code": "const rmTxns = readJSON(RAW_MAT_TXN_FILE) || { raw_material_transactions: [] };",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 401,
+          "code": "const rmTxns = readJSON(RAW_MAT_TXN_FILE);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 916,
+          "code": "const rmTxnData = readJSON(RAW_MAT_TXN_FILE) || { raw_material_transactions: [] };",
+          "route": "GET /api/products/:productId/variants/:variantId/deletion-impact"
+        },
+        {
+          "lineNum": 1012,
+          "code": "const rmTxnData = readJSON(RAW_MAT_TXN_FILE) || { raw_material_transactions: [] };",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1471,
+          "code": "const rmTxnData = readJSON(RAW_MAT_TXN_FILE) || { raw_material_transactions: [] };",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 2382,
+          "code": "const rawMatTxns    = readJSON(RAW_MAT_TXN_FILE) || { raw_material_transactions: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2479,
+          "code": "raw_material_transactions:   readJSON(RAW_MAT_TXN_FILE) || {},",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2600,
+          "code": "raw_material_transactions: readJSON(RAW_MAT_TXN_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 3058,
+          "code": "const txnData = readJSON(RAW_MAT_TXN_FILE) || { raw_material_transactions: [] };",
+          "route": "POST /api/raw-materials"
+        },
+        {
+          "lineNum": 3314,
+          "code": "const txnData = readJSON(RAW_MAT_TXN_FILE) || { raw_material_transactions: [] };",
+          "route": "POST /api/raw-materials/:id/add-stock"
+        },
+        {
+          "lineNum": 3505,
+          "code": "const rmTxnData = readJSON(RAW_MAT_TXN_FILE) || { raw_material_transactions: [] };",
+          "route": "GET /api/raw-materials/:id/history"
+        },
+        {
+          "lineNum": 3684,
+          "code": "const rmTxnData    = readJSON(RAW_MAT_TXN_FILE)          || { raw_material_transactions: [] };",
+          "route": "GET /api/raw-material-batches/:id/traceability"
+        },
+        {
+          "lineNum": 3813,
+          "code": "const d = readJSON(RAW_MAT_TXN_FILE);",
+          "route": "GET /api/raw-material-transactions"
+        },
+        {
+          "lineNum": 4269,
+          "code": "const rmTxnData    = readJSON(RAW_MAT_TXN_FILE) || { raw_material_transactions: [] };",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 4819,
+          "code": "const rmTxnData    = readJSON(RAW_MAT_TXN_FILE)           || { raw_material_transactions: [] };",
+          "route": "GET /api/manufacturing-audit-ledger"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 425,
+          "code": "writeJSONAtomic(RAW_MAT_TXN_FILE, rmTxns);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 1185,
+          "code": "writeJSONAtomic(RAW_MAT_TXN_FILE, rmTxnData);",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1506,
+          "code": "writeJSONAtomic(RAW_MAT_TXN_FILE, rmTxnData);",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 2270,
+          "code": "writeJSONAtomic(RAW_MAT_TXN_FILE,         { raw_material_transactions: [], lastUpdated: now });",
+          "route": "DELETE /api/audit-ledgers"
+        },
+        {
+          "lineNum": 2346,
+          "code": "writeJSONAtomic(RAW_MAT_TXN_FILE, { raw_material_transactions: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2515,
+          "code": "writeJSON(RAW_MAT_TXN_FILE, { raw_material_transactions: rmTxns, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 3093,
+          "code": "writeJSONAtomic(RAW_MAT_TXN_FILE, txnData);",
+          "route": "POST /api/raw-materials"
+        },
+        {
+          "lineNum": 3448,
+          "code": "writeJSONAtomic(RAW_MAT_TXN_FILE, txnData);",
+          "route": "POST /api/raw-materials/:id/add-stock"
+        },
+        {
+          "lineNum": 4653,
+          "code": "writeJSONAtomic(RAW_MAT_TXN_FILE,          rmTxnData);",
+          "route": "POST /api/manufacturing-batches/commit"
+        }
+      ]
+    },
+    "raw_material_batches.json": {
+      "reads": [
+        {
+          "lineNum": 247,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 264,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 1013,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1378,
+          "code": "rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 2383,
+          "code": "const rmBatches     = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2601,
+          "code": "raw_material_batches: readJSON(RAW_MATERIAL_BATCHES_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 3018,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "POST /api/raw-materials"
+        },
+        {
+          "lineNum": 3112,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "PUT /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3142,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "PUT /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3290,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3356,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "POST /api/raw-materials/:id/add-stock"
+        },
+        {
+          "lineNum": 3479,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "GET /api/raw-material-batches"
+        },
+        {
+          "lineNum": 3485,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "GET /api/raw-materials/:id/batches"
+        },
+        {
+          "lineNum": 3517,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "GET /api/raw-materials/:id/vendors"
+        },
+        {
+          "lineNum": 3588,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "POST /api/raw-materials/:id/delete-vendor"
+        },
+        {
+          "lineNum": 3669,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "GET /api/raw-material-batches/:id"
+        },
+        {
+          "lineNum": 3683,
+          "code": "const rmbData      = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "GET /api/raw-material-batches/:id/traceability"
+        },
+        {
+          "lineNum": 3780,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "POST /api/raw-materials/:id/batches"
+        },
+        {
+          "lineNum": 4034,
+          "code": "const rmbData = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "DELETE /api/recipes/:id"
+        },
+        {
+          "lineNum": 4215,
+          "code": "const rmbData    = readJSON(RAW_MATERIAL_BATCHES_FILE);",
+          "route": "POST /api/manufacturing-batches/preview"
+        },
+        {
+          "lineNum": 4270,
+          "code": "const rmbData      = readJSON(RAW_MATERIAL_BATCHES_FILE) || { raw_material_batches: [] };",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 4821,
+          "code": "const rmbData      = readJSON(RAW_MATERIAL_BATCHES_FILE)  || { raw_material_batches: [] };",
+          "route": "GET /api/manufacturing-audit-ledger"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 367,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, rmbData);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 1184,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, rmbData);",
+          "route": "DELETE /api/products/:productId/variants/:variantId"
+        },
+        {
+          "lineNum": 1469,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, rmbData);",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 2347,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, { raw_material_batches: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 3052,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, rmbData);",
+          "route": "POST /api/raw-materials"
+        },
+        {
+          "lineNum": 3155,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, rmbData);",
+          "route": "PUT /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3293,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, rmbData);",
+          "route": "DELETE /api/raw-materials/:id"
+        },
+        {
+          "lineNum": 3447,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, rmbData);",
+          "route": "POST /api/raw-materials/:id/add-stock"
+        },
+        {
+          "lineNum": 3613,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, rmbData);",
+          "route": "POST /api/raw-materials/:id/delete-vendor"
+        },
+        {
+          "lineNum": 3807,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE, rmbData);",
+          "route": "POST /api/raw-materials/:id/batches"
+        },
+        {
+          "lineNum": 4654,
+          "code": "writeJSONAtomic(RAW_MATERIAL_BATCHES_FILE,  rmbData);",
+          "route": "POST /api/manufacturing-batches/commit"
+        }
+      ]
+    },
+    "finished_goods.json": {
+      "reads": [
+        {
+          "lineNum": 486,
+          "code": "const fgData      = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 872,
+          "code": "const fgData = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "DELETE /api/products/:id"
+        },
+        {
+          "lineNum": 1283,
+          "code": "const fgData = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 1604,
+          "code": "const fgData    = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "POST /api/products/:id/update-variant-stock"
+        },
+        {
+          "lineNum": 1871,
+          "code": "const fgDataStore = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2179,
+          "code": "const fgData = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "DELETE /api/invoices/:id"
+        },
+        {
+          "lineNum": 2381,
+          "code": "const finishedGoods = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2478,
+          "code": "finished_goods:              readJSON(FINISHED_GOODS_FILE) || {},",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2599,
+          "code": "finished_goods: readJSON(FINISHED_GOODS_FILE) || {},",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 2890,
+          "code": "const d = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 3687,
+          "code": "const fgData       = readJSON(FINISHED_GOODS_FILE)        || { finished_goods: [] };",
+          "route": "GET /api/raw-material-batches/:id/traceability"
+        },
+        {
+          "lineNum": 4004,
+          "code": "const fgData = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "DELETE /api/recipes/:id"
+        },
+        {
+          "lineNum": 4271,
+          "code": "const fgData       = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 5264,
+          "code": "const d = readJSON(FINISHED_GOODS_FILE);",
+          "route": "GET /api/finished-goods"
+        },
+        {
+          "lineNum": 5270,
+          "code": "const d = readJSON(FINISHED_GOODS_FILE);",
+          "route": "DELETE /api/finished-goods/:id"
+        },
+        {
+          "lineNum": 5344,
+          "code": "const fgData = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "DELETE /api/manufacturing-batches/:id"
+        },
+        {
+          "lineNum": 5378,
+          "code": "const fgData     = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "GET /api/context"
+        },
+        {
+          "lineNum": 5420,
+          "code": "const fgData     = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "GET /api/stats"
+        },
+        {
+          "lineNum": 5482,
+          "code": "const fgData     = readJSON(FINISHED_GOODS_FILE) || { finished_goods: [] };",
+          "route": "POST /api/ai/invoke"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 594,
+          "code": "writeJSONAtomic(FINISHED_GOODS_FILE, fgData);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 877,
+          "code": "if (fgChanged) { fgData.lastUpdated = new Date().toISOString(); writeJSONAtomic(FINISHED_GOODS_FILE, fgData); }",
+          "route": "DELETE /api/products/:id"
+        },
+        {
+          "lineNum": 1559,
+          "code": "writeJSONAtomic(FINISHED_GOODS_FILE, fgData);",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 1710,
+          "code": "writeJSONAtomic(FINISHED_GOODS_FILE, fgData);",
+          "route": "POST /api/products/:id/update-variant-stock"
+        },
+        {
+          "lineNum": 2235,
+          "code": "writeJSONAtomic(FINISHED_GOODS_FILE, fgData);",
+          "route": "DELETE /api/invoices/:id"
+        },
+        {
+          "lineNum": 2345,
+          "code": "writeJSONAtomic(FINISHED_GOODS_FILE, { finished_goods: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2508,
+          "code": "writeJSON(FINISHED_GOODS_FILE, { finished_goods: finishedGoodsList, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2914,
+          "code": "writeJSONAtomic(FINISHED_GOODS_FILE, d);",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 4009,
+          "code": "if (fgChanged) { fgData.lastUpdated = new Date().toISOString(); writeJSONAtomic(FINISHED_GOODS_FILE, fgData); }",
+          "route": "DELETE /api/recipes/:id"
+        },
+        {
+          "lineNum": 4655,
+          "code": "writeJSONAtomic(FINISHED_GOODS_FILE,        fgData);",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 5286,
+          "code": "writeJSONAtomic(FINISHED_GOODS_FILE, d);",
+          "route": "DELETE /api/finished-goods/:id"
+        },
+        {
+          "lineNum": 5353,
+          "code": "if (fgChanged) { fgData.lastUpdated = new Date().toISOString(); writeJSONAtomic(FINISHED_GOODS_FILE, fgData); }",
+          "route": "DELETE /api/manufacturing-batches/:id"
+        }
+      ]
+    },
+    "finished_goods_transactions.json": {
+      "reads": [
+        {
+          "lineNum": 430,
+          "code": "const fgTxns = readJSON(FG_TXN_FILE);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 1284,
+          "code": "const fgTxnData = readJSON(FG_TXN_FILE) || { finished_goods_transactions: [] };",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 1605,
+          "code": "const fgTxnData = readJSON(FG_TXN_FILE)         || { finished_goods_transactions: [] };",
+          "route": "POST /api/products/:id/update-variant-stock"
+        },
+        {
+          "lineNum": 1956,
+          "code": "const fgTxnData = readJSON(FG_TXN_FILE) || { finished_goods_transactions: [] };",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 1999,
+          "code": "const fgTxnData = readJSON(FG_TXN_FILE) || { finished_goods_transactions: [] };",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2046,
+          "code": "const fgTxnData = readJSON(FG_TXN_FILE) || { finished_goods_transactions: [] };",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2180,
+          "code": "const fgTxnData = readJSON(FG_TXN_FILE) || { finished_goods_transactions: [] };",
+          "route": "DELETE /api/invoices/:id"
+        },
+        {
+          "lineNum": 2384,
+          "code": "const fgTxns        = readJSON(FG_TXN_FILE) || { finished_goods_transactions: [] };",
+          "route": "GET /api/export-data"
+        },
+        {
+          "lineNum": 2480,
+          "code": "finished_goods_transactions: readJSON(FG_TXN_FILE) || {}",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 2602,
+          "code": "finished_goods_transactions: readJSON(FG_TXN_FILE) || {}",
+          "route": "POST /api/import-data/:section"
+        },
+        {
+          "lineNum": 4272,
+          "code": "const fgTxnData    = readJSON(FG_TXN_FILE) || { finished_goods_transactions: [] };",
+          "route": "POST /api/manufacturing-batches/commit"
+        },
+        {
+          "lineNum": 4820,
+          "code": "const fgTxnData    = readJSON(FG_TXN_FILE)                || { finished_goods_transactions: [] };",
+          "route": "GET /api/manufacturing-audit-ledger"
+        },
+        {
+          "lineNum": 5324,
+          "code": "const d = readJSON(FG_TXN_FILE);",
+          "route": "GET /api/finished-goods-transactions"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 441,
+          "code": "writeJSONAtomic(FG_TXN_FILE, fgTxns);",
+          "route": "Startup / Helper"
+        },
+        {
+          "lineNum": 1560,
+          "code": "writeJSONAtomic(FG_TXN_FILE, fgTxnData);",
+          "route": "POST /api/products/:id/fill-bottles"
+        },
+        {
+          "lineNum": 1711,
+          "code": "writeJSONAtomic(FG_TXN_FILE, fgTxnData);",
+          "route": "POST /api/products/:id/update-variant-stock"
+        },
+        {
+          "lineNum": 1977,
+          "code": "writeJSONAtomic(FG_TXN_FILE, fgTxnData);",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2023,
+          "code": "writeJSONAtomic(FG_TXN_FILE, fgTxnData);",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2065,
+          "code": "writeJSONAtomic(FG_TXN_FILE, fgTxnData);",
+          "route": "POST /api/invoices"
+        },
+        {
+          "lineNum": 2236,
+          "code": "writeJSONAtomic(FG_TXN_FILE, fgTxnData);",
+          "route": "DELETE /api/invoices/:id"
+        },
+        {
+          "lineNum": 2271,
+          "code": "writeJSONAtomic(FG_TXN_FILE,              { finished_goods_transactions: [], lastUpdated: now });",
+          "route": "DELETE /api/audit-ledgers"
+        },
+        {
+          "lineNum": 2348,
+          "code": "writeJSONAtomic(FG_TXN_FILE, { finished_goods_transactions: [], lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 2517,
+          "code": "writeJSON(FG_TXN_FILE, { finished_goods_transactions: fgTxns, lastUpdated: new Date().toISOString() });",
+          "route": "POST /api/import-data"
+        },
+        {
+          "lineNum": 4656,
+          "code": "writeJSONAtomic(FG_TXN_FILE,               fgTxnData);",
+          "route": "POST /api/manufacturing-batches/commit"
+        }
+      ]
+    },
+    "notes.json": {
+      "reads": [
+        {
+          "lineNum": 5528,
+          "code": "const data = JSON.parse(fs.readFileSync(NOTES_FILE, 'utf8'));",
+          "route": "GET /api/notes"
+        }
+      ],
+      "writes": [
+        {
+          "lineNum": 2349,
+          "code": "writeJSONAtomic(NOTES_FILE, { notes: '' });",
+          "route": "POST /api/system/reset-data"
+        },
+        {
+          "lineNum": 5538,
+          "code": "fs.writeFileSync(NOTES_FILE, JSON.stringify({ notes }, null, 2));",
+          "route": "POST /api/notes"
+        }
+      ]
+    }
+  }
+}

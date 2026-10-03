@@ -1,0 +1,56 @@
+{
+  "name": "invoicewise",
+  "version": "3.1.1",
+  "description": "InvoiceWise 3.1.1 — GST Billing, Inventory, Manufacturing, Batch Traceability & Audit ERP System",
+  "main": "main.js",
+  "author": "InvoiceWise Intelligence",
+  "scripts": {
+    "clean": "node clean-data.js",
+    "setup": "node setup.js",
+    "start": "node server.js",
+    "electron:start": "electron .",
+    "qa:deep": "node scratch/run_deep_qa.js",
+    "verify:integrity": "node scratch/verify_data_integrity.js",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.invoicewise.desktop",
+    "productName": "InvoiceWise",
+    "copyright": "Copyright © 2026 InvoiceWise",
+    "files": [
+      "main.js",
+      "server.js",
+      "prompts.js",
+      "unitConversion.js",
+      "public/**/*",
+      "data/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "public/logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "InvoiceWise GST Billing ERP",
+      "uninstallDisplayName": "InvoiceWise Desktop ERP"
+    }
+  }
+}

@@ -1,0 +1,303 @@
+{
+  "product": {
+    "name": "InvoiceWise",
+    "edition": "Enterprise Desktop ERP",
+    "tagline": "GST Billing, Inventory, Manufacturing, Batch Traceability & Audit ERP System",
+    "targetAudience": "Indian manufacturers, chemical processors, cosmetic formulators, pharmaceutical distributors, and multi-variant product packagers",
+    "compliance": "GST Rule 46 Tax Invoicing, HSN/SAC, CGST/SGST/IGST, State Code resolution"
+  },
+  "version": "3.0.1",
+  "overview": {
+    "summary": "InvoiceWise 3.0.1 is an enterprise-grade, standalone Windows desktop ERP software. It seamlessly unifies BOM recipe formulation, vendor-specific raw material batch inventory (FIFO), non-destructive manufacturing validation, bulk liquid packaging into ready-to-sell SKU variants, Rule 46 GST tax invoices, immutable audit ledgers, batch traceability, and desktop utility panels (Notes and repositionable Calculator).",
+    "runtime": "Standalone Windows Desktop Application powered by Electron 28 and embedded Node.js Express server. Zero external database dependencies (100% atomic JSON persistence)."
+  },
+  "architecture": {
+    "type": "Single Page Application (SPA) desktop architecture with embedded local API and atomic JSON storage",
+    "layers": [
+      { "layer": "Desktop Host", "technology": "Electron 28", "role": "Native Windows window management, local system integration, and print pop-up routing" },
+      { "layer": "Frontend SPA", "technology": "Vanilla ES6+, CSS3 Glassmorphism UI", "role": "Reactive DOM rendering, real-time calculation engines, modal flows, and responsive desktop layout" },
+      { "layer": "Local API Server", "technology": "Express.js 4 on embedded Node.js", "role": "Business logic enforcement, unit conversion, atomic file writes, and validation" },
+      { "layer": "Persistence Layer", "technology": "Atomic JSON File System", "role": "ACID-compliant safe write operations via writeJSONAtomic (temporary file + rename strategy)" },
+      { "layer": "Traceability & Audit", "technology": "Immutable Audit Correlation Engine", "role": "Unified event sequencing connecting purchases, batches, production, packaging, and invoices" }
+    ]
+  },
+  "modules": [
+    "Dashboard Overview",
+    "Company Profile & Settings",
+    "Raw Materials Master",
+    "Raw Material Vendor Purchases",
+    "Raw Material Batches",
+    "Raw Material Transaction History",
+    "Recipes & Bill of Materials (BOM)",
+    "Recipe Versioning & Immutable Snapshots",
+    "Manufacturing Engine (Preview & Commit)",
+    "Manufacturing Batch History",
+    "Finished Goods Bulk Inventory",
+    "Finished Goods Batch Inventory",
+    "Products & SKUs Catalog",
+    "Product Size Variants",
+    "Bottle Packaging & Maximum Feasible Stock",
+    "Customer Directory & GSTIN Profiles",
+    "Sales Invoicing (GST Rule 46)",
+    "Invoice Cancellation & Stock Restocking",
+    "Forward & Backward Batch Traceability",
+    "Unified Audit Ledger",
+    "Audit Ledger Excel Export (ExcelJS)",
+    "Audit Ledger PDF Export",
+    "System JSON Export",
+    "Modular & Full JSON Import Engine",
+    "Pre-Import Safety Backup & Restore",
+    "Right-Side Global Notes Utility (Auto-saved)",
+    "Right-Side Slide-Out Calculator (Vertically Draggable)",
+    "Real-Time Search & Multi-Criteria Filters",
+    "Role & Form Validation Engines",
+    "System Health & Diagnostics"
+  ],
+  "inventoryArchitecture": {
+    "isolationRules": [
+      {
+        "ruleNumber": 1,
+        "action": "Manufacturing Production Commit",
+        "rawMaterials": "Deducted according to formula and vendor batch allocation",
+        "finishedGoodsBulk": "Increased by manufactured bulk yield",
+        "productVariants": "100% Untouched (Variant stock remains unchanged)"
+      },
+      {
+        "ruleNumber": 2,
+        "action": "Bottle Packaging & Variant Stocking",
+        "rawMaterials": "100% Untouched",
+        "finishedGoodsBulk": "Deducted by total packaged volume",
+        "productVariants": "Increased by packaged ready-to-sell bottle count"
+      },
+      {
+        "ruleNumber": 3,
+        "action": "Sales Tax Invoicing",
+        "rawMaterials": "100% Untouched",
+        "finishedGoodsBulk": "100% Untouched",
+        "productVariants": "Deducted strictly by sold bottle quantity"
+      },
+      {
+        "ruleNumber": 4,
+        "action": "Invoice Cancellation & Restock",
+        "rawMaterials": "100% Untouched",
+        "finishedGoodsBulk": "100% Untouched",
+        "productVariants": "Restored back into variant ready-to-sell inventory"
+      }
+    ]
+  },
+  "rawMaterialArchitecture": {
+    "identifierFormat": "RM-XXXXXX",
+    "batchIdentifierFormat": "RMB-YYYY-NNNN",
+    "reconciliationRule": "Parent Raw Material Stock is mathematically synchronized with the sum of active batch remaining quantities: Parent Stock = SUM(Active Batches Remaining Quantity).",
+    "actions": [
+      "Add Raw Material",
+      "Edit Raw Material Details",
+      "Delete Raw Material (with usage protection)",
+      "Increase Stock / Record Vendor Purchase",
+      "View Inward Batches Modal",
+      "View Raw Material Transaction History"
+    ]
+  },
+  "vendorAndBatchManagement": {
+    "description": "Each raw material stock increase registers a distinct inward batch with full supplier provenance.",
+    "batchMetadata": [
+      "internalBatchId",
+      "supplierBatchNumber",
+      "vendorName",
+      "vendorGstNumber",
+      "vendorInvoiceNumber",
+      "vendorBillingRef",
+      "vendorAddress",
+      "vendorContact",
+      "vendorEmail",
+      "purchasePrice",
+      "costPerUnit",
+      "purchaseDate",
+      "originalQuantity",
+      "remainingQuantity",
+      "status (ACTIVE, PARTIALLY_CONSUMED, CONSUMED)",
+      "auditCorrelationId"
+    ],
+    "fifoConsumption": "Default consumption follows FIFO (First-In, First-Out) by purchase date and batch creation time. Consumed batches remain stored permanently for historical and audit traceability."
+  },
+  "recipeAndBOM": {
+    "formulaEngine": "Links ingredient raw materials with required quantities, units, and vendor preferences to target output products.",
+    "unitConversion": "Built-in unit conversion supports volume (mL, L, kL), weight (mg, g, kg, t), and count (pcs, box, btl).",
+    "vendorPreference": {
+      "options": ["DEFAULT_FIFO", "Specific Vendor Name"],
+      "enforcement": "If an explicit vendor is chosen, manufacturing consumes strictly from batches belonging to that vendor. If stock is insufficient, production is blocked with a clear validation error without silent vendor switching.",
+      "multiVendorRecipeSupport": "Supports multiple ingredient lines referencing the same raw material ID with different vendor preferences in a single BOM, accurately calculating availability and deducting from each designated vendor pool."
+    }
+  },
+  "recipeVersioning": {
+    "strategy": "Modifying an existing recipe generates a new incremental version (v1, v2, v3...).",
+    "immutability": "Historical manufacturing batches store an immutable snapshot of the recipe version at the time of commit, ensuring past batch logs are never corrupted by recipe updates."
+  },
+  "manufacturingWorkflow": {
+    "stage1_preview": {
+      "name": "Calculate & Validate Stock",
+      "characteristics": "Non-destructive calculation. Checks BOM requirements, converts units, evaluates batch allocations, checks shortages, and returns detailed preview table. Does not mutate stock or write audit records."
+    },
+    "stage2_commit": {
+      "name": "Manufacture / Commit Batch",
+      "characteristics": "Atomically revalidates inventory, consumes raw material batches, updates parent stock, increases finished goods bulk stock, creates manufacturing batch log, and generates immutable audit ledger records."
+    },
+    "noQuickPurchaseRule": "The manufacturing module contains zero shortcuts for quick-add or automatic stock injection. Missing inventory strictly halts production until acquired through the formal vendor purchase flow."
+  },
+  "finishedGoods": {
+    "concept": "Bulk manufactured liquid pool ready for packaging.",
+    "tracking": "Tracks bulk stock in primary output units, linked to manufacturing batch ID and finished goods batch ID (FGB-YYYYMMDD-NNNNN)."
+  },
+  "packaging": {
+    "concept": "Conversion of Finished Goods bulk stock into packaged bottle variants.",
+    "formula": "Finished Goods Bulk Volume -= (Bottles Packaged * Bottle Size in mL). Variant Ready-to-Sell Stock += Bottles Packaged.",
+    "calculator": "Real-time maximum feasible stock calculator prevents over-allocation."
+  },
+  "salesAndInvoicing": {
+    "standard": "GST Rule 46 Tax Invoicing",
+    "taxCalculation": "Intra-state (CGST + SGST) vs Inter-state (IGST) determined automatically from company state code and customer state code.",
+    "inventoryDeduction": "Deducts strictly from ready-to-sell variant stock."
+  },
+  "traceability": {
+    "forwardTrace": "Raw Material Batch -> Manufacturing Batch -> Finished Goods Batch -> SKU Variant -> Sales Invoice",
+    "backwardTrace": "Sales Invoice -> SKU Variant -> Finished Goods Batch -> Manufacturing Batch -> Raw Material Batches -> Supplier Batches"
+  },
+  "auditLedger": {
+    "structure": "Single Unified Audit Ledger with category filters: All, Raw Material, Manufacturing, Finished Goods, Sales.",
+    "correlationIdFormat": "AUD-YYYY-NNNNNN",
+    "persistence": "Permanent and immutable records saved across raw_material_transactions.json, manufacturing_audit.json, and finished_goods_transactions.json."
+  },
+  "exports": {
+    "excel": "Download Audit Ledger Excel (Multi-tab workbook powered by ExcelJS including Audit Summary, RM Ledger, Manufacturing Ledger, Finished Goods Ledger, Sales Ledger, and Batch Traceability).",
+    "pdf": "Download Audit Ledger PDF (Landscape A4 layout with active filter reflection, correlation IDs, and company header).",
+    "json": "Full ERP database export bundle with metadata and version tag 3.0.1."
+  },
+  "notes": {
+    "type": "Slide-out right-side scratchpad utility",
+    "storage": "data/notes.json",
+    "features": ["Debounced auto-save", "Status indicator", "Zero financial or inventory side-effects"]
+  },
+  "calculator": {
+    "type": "Slide-out right-side math utility",
+    "features": [
+      "Full arithmetic (+, -, *, /, %, ±, .)",
+      "Division-by-zero validation",
+      "Keyboard input support (Numpad, Enter, Backspace, Escape)",
+      "Vertically draggable panel with position saved across sessions",
+      "Zero interference with ERP form inputs"
+    ]
+  },
+  "dataPersistence": {
+    "directory": "data/ (or %APPDATA%/InvoiceWise/InvoiceWiseData in production desktop mode)",
+    "files": [
+      "products.json",
+      "customers.json",
+      "invoices.json",
+      "settings.json",
+      "raw_materials.json",
+      "raw_material_batches.json",
+      "recipes.json",
+      "recipe_history.json",
+      "finished_goods.json",
+      "manufacturing_batches.json",
+      "manufacturing_audit.json",
+      "raw_material_transactions.json",
+      "finished_goods_transactions.json",
+      "notes.json"
+    ]
+  },
+  "backupRestore": {
+    "manualBackup": "Download complete timestamped JSON bundle via Settings -> Export",
+    "safetyBackup": "Automatic pre-import backup created at data/pre_import_backup.json prior to applying changes",
+    "restore": "Drag-and-drop or select backup JSON bundle to restore database"
+  },
+  "jsonImportExport": {
+    "validation": "Validates application name, JSON structure, collections, and references before executing",
+    "modularImport": "Supports modular section imports (Raw Materials, Recipes, Products, Customers)"
+  },
+  "permissions": {
+    "model": "Role-aware administrative and operational access control",
+    "integrity": "Backend enforcement of inventory invariants regardless of frontend DOM state"
+  },
+  "validation": {
+    "rules": [
+      "Quantities must be positive numbers",
+      "Raw materials and recipes require non-empty names",
+      "GSTIN validated against official Indian tax format (15 characters alphanumeric)",
+      "Dates validated to ensure end dates are not earlier than start dates",
+      "Double-click submission guards on all critical modal actions"
+    ]
+  },
+  "uiLayout": {
+    "designSystem": "Dark-mode glassmorphism interface with CSS custom properties",
+    "responsive": "Adaptive layout supporting full screen, maximized, split screen, and narrow desktop windows",
+    "utilityFABs": "Right-side stacked floating action buttons for Calculator and Notes"
+  },
+  "api": {
+    "base": "http://localhost:3000",
+    "totalRoutes": 56,
+    "keyEndpoints": [
+      "GET /api/stats",
+      "GET /api/settings",
+      "PUT /api/settings",
+      "GET /api/raw-materials",
+      "POST /api/raw-materials",
+      "POST /api/raw-materials/:id/add-stock",
+      "GET /api/raw-material-batches",
+      "GET /api/recipes",
+      "POST /api/recipes",
+      "POST /api/manufacturing-batches/preview",
+      "POST /api/manufacturing-batches/commit",
+      "GET /api/finished-goods",
+      "POST /api/products/:id/update-variant-stock",
+      "GET /api/invoices",
+      "POST /api/invoices",
+      "DELETE /api/invoices/:id",
+      "GET /api/manufacturing-audit-ledger",
+      "GET /api/audit-ledger/export",
+      "GET /api/export-data",
+      "POST /api/import-data",
+      "GET /api/notes",
+      "POST /api/notes"
+    ]
+  },
+  "testing": {
+    "endToEndStatus": "Passed",
+    "inventoryInvariantsStatus": "Passed",
+    "fifosStatus": "Passed",
+    "vendorPreferenceStatus": "Passed",
+    "nonDestructivePreviewStatus": "Passed"
+  },
+  "build": {
+    "target": "Windows x64",
+    "packager": "electron-builder",
+    "outputs": [
+      "dist/InvoiceWise Setup 3.0.1.exe (NSIS Installer)",
+      "dist/InvoiceWise 3.0.1.exe (Portable Executable)",
+      "dist/win-unpacked/InvoiceWise.exe (Unpacked Application)"
+    ]
+  },
+  "installation": {
+    "prerequisites": "None. Standalone Windows executable bundles all required runtimes.",
+    "execution": "Run InvoiceWise Setup 3.0.1.exe to install or run the portable EXE directly."
+  },
+  "releaseChecklist": [
+    { "item": "V2 functionality preserved and verified", "status": "COMPLETED" },
+    { "item": "V3 raw material vendor batch architecture implemented", "status": "COMPLETED" },
+    { "item": "FIFO batch consumption validated", "status": "COMPLETED" },
+    { "item": "Explicit vendor preference and shortage rejection verified", "status": "COMPLETED" },
+    { "item": "Multi-vendor ingredient recipe BOM allocation and deduction verified", "status": "COMPLETED" },
+    { "item": "Calculate & Validate verified non-destructive", "status": "COMPLETED" },
+    { "item": "Atomic manufacturing commit verified", "status": "COMPLETED" },
+    { "item": "Quick-add shortcuts completely removed", "status": "COMPLETED" },
+    { "item": "4-layer inventory isolation rules verified", "status": "COMPLETED" },
+    { "item": "Unified audit ledger and correlation IDs verified", "status": "COMPLETED" },
+    { "item": "Comprehensive multi-module landscape audit PDF export verified", "status": "COMPLETED" },
+    { "item": "Excel 6-sheet audit export verified", "status": "COMPLETED" },
+    { "item": "Concurrent side-by-side Scratchpad and omnidirectional Calculator verified", "status": "COMPLETED" },
+    { "item": "Production data stores sanitized and test data purged", "status": "COMPLETED" },
+    { "item": "README and documentation updated", "status": "COMPLETED" },
+    { "item": "Version updated to 3.0.1 across all components", "status": "COMPLETED" },
+    { "item": "Windows EXE and installer packaging", "status": "COMPLETED" }
+  ]
+}
